@@ -1,5 +1,4 @@
-# React + Vite
-
+# Como iniciar o projeto
 Clone o repositório
 
 Depois abra o projeto no VS Code

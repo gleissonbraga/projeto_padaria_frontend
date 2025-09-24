@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function NavBar() {
   return (
     <nav className="bg-[#c78a5972] flex flex-row justify-around items-center p-4 fixed w-full z-50">
@@ -7,10 +9,7 @@ export default function NavBar() {
       <div>
         <ul className="flex gap-6 uppercase text-white font-semibold">
           <li>
-            <a href="#" target="_blank" rel="noopener noreferrer">Inicio</a>
-          </li>
-          <li>
-            <a href="#" target="_blank" rel="noopener noreferrer">Produtos</a>
+            <Link to="/produtos">Inicio</Link>
           </li>
           <li>
             <a href="#" target="_blank" rel="noopener noreferrer">Sobre Nós</a>

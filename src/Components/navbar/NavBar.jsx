@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 
 export default function NavBar() {
   return (
-    <nav className="bg-[#c78a5972] flex flex-row justify-around items-center p-4 fixed w-full z-50">
+    <nav className="flex flex-row justify-around items-center fixed w-full z-50">
       <div>
-        <img src="/images/image.png" alt="Logo" className="h-12 w-12" />
+        <img src="/images/image.png" alt="Logo" className="h-40 w-60" />
       </div>
       <div>
-        <ul className="flex gap-6 uppercase text-white font-semibold">
+        <ul className="flex gap-6 text-2xl text-[#48271d] font-bold">
            <li>
             <Link to="/">Inicio</Link>
           </li>
@@ -22,12 +22,12 @@ export default function NavBar() {
           </li>
         </ul>
       </div>
-      <div className="flex flex-col text-white text-sm font-bold">
-        <span>📞 51 99930-3193</span>
-        <span>☎️ 51 3333-3333</span>
+      <div className="flex flex-col text-[#48271d] text-sm font-bold">
+        <span> 51 99930-3193</span>
+        <span> 51 3333-3333</span>
       </div>
       <div>
-        <Link to="/carrinho"><img src="/images/cart-bakery.svg" alt="cart" className="h-8 w-8 text-white" /></Link>
+        <Link to="/carrinho"><img src="/images/cart-bakery.svg" alt="cart" className="h-8 w-8 text-[#48271d]" /></Link>
       </div>
     </nav>
   );

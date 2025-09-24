@@ -27,7 +27,7 @@ export default function NavBar() {
         <span>☎️ 51 3333-3333</span>
       </div>
       <div>
-        <img src="/images/cart-bakery.svg" alt="cart" className="h-8 w-8 text-white" />
+        <Link to="/carrinho"><img src="/images/cart-bakery.svg" alt="cart" className="h-8 w-8 text-white" /></Link>
       </div>
     </nav>
   );

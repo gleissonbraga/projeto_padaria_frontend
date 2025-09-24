@@ -8,69 +8,46 @@ export default function Produtos(){
                 <div className="w-[80%] h-24 mt-8 flex flex-col items-center">
                     <div className="w-[40%] border-b-[1px] border-[#D9D9D9] flex justify-center">
                         <ul className="flex gap-6 text-[1.2rem] text-[#5D5D5D] font-poppins font-semibold ">
-                            <li>Salgado</li>
-                            <li>Doces</li>
-                            <li>Pães</li>
-                            <li>Tortas</li>
-                            <li>Sucos</li>
+                            <li className="hover:text-[#c78b59] cursor-pointer">Salgado</li>
+                            <li className="hover:text-[#c78b59] cursor-pointer">Doces</li>
+                            <li className="hover:text-[#c78b59] cursor-pointer">Pães</li>
+                            <li className="hover:text-[#c78b59] cursor-pointer">Tortas</li>
+                            <li className="hover:text-[#c78b59] cursor-pointer">Sucos</li>
                         </ul>
                     </div>
                 </div>
                 <article className="w-full flex p-3 gap-3 flex-wrap justify-center">
-                    <div className="w-[200px] h-[250px] bg-blue-300 rounded shadow-2xl">
+                    <div className="w-[200px] h-[250px]  rounded shadow-2xl hover:scale-[102%] hover:transition-transform duration-700 hover:blur-[1px] hover:bg-gray-100">
 
                     </div>
-                    <div className="w-[200px] h-[250px] bg-blue-300 rounded shadow-2xl">
+                    <div className="w-[200px] h-[250px]  rounded shadow-2xl hover:scale-[102%] hover:transition-transform duration-700 hover:blur-[1px] hover:bg-gray-100">
 
                     </div>
-                    <div className="w-[200px] h-[250px] bg-blue-300 rounded shadow-2xl">
+                    <div className="w-[200px] h-[250px]  rounded shadow-2xl hover:scale-[102%] hover:transition-transform duration-700 hover:blur-[1px] hover:bg-gray-100">
 
                     </div>
-                    <div className="w-[200px] h-[250px] bg-blue-300 rounded shadow-2xl">
+                    <div className="w-[200px] h-[250px]  rounded shadow-2xl hover:scale-[102%] hover:transition-transform duration-700 hover:blur-[1px] hover:bg-gray-100">
 
                     </div>
-                    <div className="w-[200px] h-[250px] bg-blue-300 rounded shadow-2xl">
+                    <div className="w-[200px] h-[250px]  rounded shadow-2xl hover:scale-[102%] hover:transition-transform duration-700 hover:blur-[1px] hover:bg-gray-100">
 
                     </div>
-                    <div className="w-[200px] h-[250px] bg-blue-300 rounded shadow-2xl">
+                    <div className="w-[200px] h-[250px]  rounded shadow-2xl hover:scale-[102%] hover:transition-transform duration-700 hover:blur-[1px] hover:bg-gray-100">
 
                     </div>
-                    <div className="w-[200px] h-[250px] bg-blue-300 rounded shadow-2xl">
+                    <div className="w-[200px] h-[250px]  rounded shadow-2xl hover:scale-[102%] hover:transition-transform duration-700 hover:blur-[1px] hover:bg-gray-100">
 
                     </div>
-                    <div className="w-[200px] h-[250px] bg-blue-300 rounded shadow-2xl">
+                    <div className="w-[200px] h-[250px]  rounded shadow-2xl hover:scale-[102%] hover:transition-transform duration-700 hover:blur-[1px] hover:bg-gray-100">
 
                     </div>
-                    <div className="w-[200px] h-[250px] bg-blue-300 rounded shadow-2xl">
+                    <div className="w-[200px] h-[250px]  rounded shadow-2xl hover:scale-[102%] hover:transition-transform duration-700 hover:blur-[1px] hover:bg-gray-100">
 
                     </div>
-                    <div className="w-[200px] h-[250px] bg-blue-300 rounded shadow-2xl">
+                    <div className="w-[200px] h-[250px]  rounded shadow-2xl hover:scale-[102%] hover:transition-transform duration-700 hover:blur-[1px] hover:bg-gray-100">
 
                     </div>
-                    <div className="w-[200px] h-[250px] bg-blue-300 rounded shadow-2xl">
-
-                    </div>
-                    <div className="w-[200px] h-[250px] bg-blue-300 rounded shadow-2xl">
-
-                    </div>
-                    <div className="w-[200px] h-[250px] bg-blue-300 rounded shadow-2xl">
-
-                    </div>
-                    <div className="w-[200px] h-[250px] bg-blue-300 rounded shadow-2xl">
-
-                    </div>
-                    <div className="w-[200px] h-[250px] bg-blue-300 rounded shadow-2xl">
-
-                    </div>
-                    <div className="w-[200px] h-[250px] bg-blue-300 rounded shadow-2xl">
-
-                    </div>
-                    <div className="w-[200px] h-[250px] bg-blue-300 rounded shadow-2xl">
-
-                    </div>
-                    <div className="w-[200px] h-[250px] bg-blue-300 rounded shadow-2xl">
-
-                    </div>
+                    
                     
                 </article>
             </div>

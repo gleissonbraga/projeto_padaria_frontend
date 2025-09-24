@@ -26,7 +26,6 @@ export default function Descricao(){
                     <div className="w-[350px] h-[250px]">
                         <div className="w-full h-full bg-blue-400"></div>
                     </div>
-                    
                 </figure>
             </div>
        </section> 

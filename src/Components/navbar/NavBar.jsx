@@ -8,8 +8,11 @@ export default function NavBar() {
       </div>
       <div>
         <ul className="flex gap-6 uppercase text-white font-semibold">
+           <li>
+            <Link to="/">Inicio</Link>
+          </li>
           <li>
-            <Link to="/produtos">Inicio</Link>
+            <Link to="/produtos">Produtos</Link>
           </li>
           <li>
             <a href="#" target="_blank" rel="noopener noreferrer">Sobre Nós</a>

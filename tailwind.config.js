@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         sansita: ["'Sansita Swashed'", "cursive"],
+        poppins: ["Poppins", sans-serif]
       },
     },
   },

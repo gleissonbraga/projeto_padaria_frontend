@@ -1,6 +1,6 @@
 export default function Home(){
     return (
-        <section className="w-full h-screen bg-[url('/images/bg-home.png')] bg-cover bg-center pt-40 flex justify-start pl-28">
+        <section className="w-full h-screen bg-[url('/images/bg-home-2.png')] bg-cover bg-center pt-40 flex justify-start pl-28">
             <div className="w-[50%] flex text-center">
                 <div className="w-full flex flex-col gap-8 p-6">
                     <div className="font-sansita text-white text-7xl flex flex-col text-start pt-6">

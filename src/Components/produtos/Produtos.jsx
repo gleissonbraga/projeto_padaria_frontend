@@ -32,6 +32,30 @@ export default function Produtos() {
     fetchProdutos();
   }, []);
 
+  const adicionarAoCarrinho = (produto) => {
+  // Recupera os produtos salvos ou cria um array vazio
+  const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+  // Adiciona o produto com a quantidade atual
+  const produtoComQuantidade = {
+    ...produto,
+    quantidade: quantidades[produto.idProduto] || 1
+  };
+
+  // Checa se o produto já está no carrinho
+  const index = carrinho.findIndex(p => p.idProduto === produto.idProduto);
+
+  if (index !== -1) {
+    // Se já existir, apenas atualiza a quantidade
+    carrinho[index].quantidade += produtoComQuantidade.quantidade;
+  } else {
+    // Se não existir, adiciona novo
+    carrinho.push(produtoComQuantidade);
+  }
+
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+};
+
     const incrementar = (id) => {
     setQuantidades(prev => ({ ...prev, [id]: prev[id] + 1 }));
   };
@@ -129,7 +153,7 @@ export default function Produtos() {
                     <button onClick={() => incrementar(prod.idProduto)} className="bg-blue-500 w-6 h-6 text-white rounded hover:bg-blue-600">+</button>
                   </div>
                 </div>
-                <button className="w-[60%] rounded font-semibold text-[1rem] border-2 border-amber-700 hover:bg-amber-700 hover:text-[#FFFF]">
+                <button onClick={() => adicionarAoCarrinho(prod)} className="w-[60%] cursor-pointer rounded font-semibold text-[1rem] border-2 border-amber-700 hover:bg-amber-700 hover:text-[#FFFF]">
                   Comprar
                 </button>
               </div>

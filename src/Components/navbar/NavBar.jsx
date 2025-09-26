@@ -1,6 +1,27 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function NavBar() {
+  const [qtd, setQtd] = useState(0)
+  const [cartNotification, setCartnotification] = useState(false)
+
+const limparCarrinho = () => {
+  localStorage.removeItem("carrinho");
+  setQtd(0); // opcional: zerar contador no estado
+  setCartNotification(false); // opcional: esconder badge
+};
+
+ useEffect(() => {
+  const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+  if (carrinho.length > 0) {
+    setQtd(carrinho.length);
+    setCartnotification(true);
+  } else {
+    setQtd(0);
+    setCartnotification(false);
+  }
+}, []);
+
   return (
     <nav className="flex bg-[#ffddbd]  flex-row justify-around items-center fixed w-full z-50 mt-6">
       <div className="flex items-start">
@@ -26,12 +47,19 @@ export default function NavBar() {
         <span className="font-semibold font-poppins text-[1.2rem]"> 51 99930-3193</span>
         <span className="font-semibold font-poppins text-[1.2rem]"> 51 3333-3333</span>
       </div>
-      <div>
+      <div className="">
         <Link to="/carrinho">
-          <div className="w-6 h-6 bg-red-600 rounded-4xl relative top-3 left-5"> </div>
+          <div className={`w-6 h-6 bg-red-600 rounded-4xl relative top-3 left-5 text-center text-white font-semibold ${cartNotification ? "" : "hidden"}`}>{qtd}</div>
           <img src="/images/cart-bakery.svg" alt="cart" className="h-8 w-8 text-[#48271d]"/>
         </Link>
       </div>
+
+      {/* temporario */}
+      <button onClick={limparCarrinho} className="bg-red-500 text-white p-2 rounded">
+  Limpar Carrinho
+</button>
+
     </nav>
+    
   );
 }

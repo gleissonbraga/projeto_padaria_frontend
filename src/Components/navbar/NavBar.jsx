@@ -5,7 +5,7 @@ import { useCarrinhoContext } from "../../context/CarrinhoContext";
 import Modal from "../modal/Modal";
 import ItensCarrinho from "../produtos/components/ItensCarrinho";
 
-export default function NavBar() {
+export default function navbar() {
   const [select, setSelect] = useState("")
   const {qtdProdutosDiferentes, } = useCarrinhoContext();
   const [abrirModal, setAbrirModal] = useState(false);

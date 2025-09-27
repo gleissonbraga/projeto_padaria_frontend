@@ -4,9 +4,8 @@ import Descricao from "./Components/images/Descricao.jsx";
 import "./index.css";
 import Footer from "./Components/footer/footer.jsx";
 import Produtos from "./Components/produtos/Produtos.jsx"
-import NavBar from "./Components/navbar/NavBar.jsx"
 import { CarrinhoProvider } from "./context/CarrinhoContext.jsx";
-import Modal from "./Components/modal/Modal.jsx";
+import NavBar from "./Components/navbar/navbar.jsx";
 
 function App() {
   return (

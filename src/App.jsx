@@ -5,10 +5,13 @@ import "./index.css";
 import Footer from "./Components/footer/footer.jsx";
 import Produtos from "./Components/produtos/Produtos.jsx"
 import NavBar from "./Components/navbar/NavBar.jsx"
+import { CarrinhoProvider } from "./context/CarrinhoContext.jsx";
+import Modal from "./Components/modal/Modal.jsx";
 
 function App() {
   return (
     <div className="App">
+      <CarrinhoProvider>
       <NavBar/>
       <Routes>
       <Route path="/" element={
@@ -20,6 +23,7 @@ function App() {
       <Route path="/produtos" element={<Produtos />} />  
       </Routes>
      <Footer/>
+     </CarrinhoProvider>
     </div>
   );
 }

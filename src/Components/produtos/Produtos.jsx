@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import apiClient from "../../api/api";
+import { useCarrinhoContext } from "../../context/CarrinhoContext";
+import Modal from "../modal/Modal";
 
 export default function Produtos() {
   const [produtos, setProdutos] = useState([])
@@ -7,6 +9,11 @@ export default function Produtos() {
   const [produtosSalgados, setProdutosSalgados] = useState([]);
   const [categoriaSelecionada, setCategoriaSelecionada] = useState("Todos");
   const [quantidades, setQuantidades] = useState({});
+  const {adicionarAoCarrinho, obterQuantidade} = useCarrinhoContext();
+  const [abrirModal, setAbrirModal] = useState(false);
+
+  const modalAbrir = () => setAbrirModal(true);
+  const modalFechar = () => setAbrirModal(false);
 
   useEffect(() => {
     const fetchProdutos = async () => {
@@ -32,40 +39,22 @@ export default function Produtos() {
     fetchProdutos();
   }, []);
 
-  const adicionarAoCarrinho = (produto) => {
-  // Recupera os produtos salvos ou cria um array vazio
-  const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-
-  // Adiciona o produto com a quantidade atual
-  const produtoComQuantidade = {
-    ...produto,
-    quantidade: quantidades[produto.idProduto] || 1
+   const incrementar = (idProduto) => {
+    setQuantidades(prev => ({
+      ...prev,
+      [idProduto]: (prev[idProduto] || 0) + 1
+    }));
   };
 
-  // Checa se o produto já está no carrinho
-  const index = carrinho.findIndex(p => p.idProduto === produto.idProduto);
-
-  if (index !== -1) {
-    // Se já existir, apenas atualiza a quantidade
-    carrinho[index].quantidade += produtoComQuantidade.quantidade;
-  } else {
-    // Se não existir, adiciona novo
-    carrinho.push(produtoComQuantidade);
-  }
-
-  localStorage.setItem("carrinho", JSON.stringify(carrinho));
-};
-
-    const incrementar = (id) => {
-    setQuantidades(prev => ({ ...prev, [id]: prev[id] + 1 }));
+  const decrementar = (idProduto) => {
+    setQuantidades(prev => ({
+      ...prev,
+      [idProduto]: Math.max((prev[idProduto] || 0) - 1, 0)
+    }));
   };
-
-  const decrementar = (id) => {
-    setQuantidades(prev => ({ ...prev, [id]: prev[id] > 0 ? prev[id] - 1 : 0 }));
-  };
-
   return (
-    <section className="w-full bg-[#fff] flex justify-center pt-48 pb-6">
+    
+    <section className="w-full bg-[#fff] flex justify-center pt-56 pb-6">
       <div className=" w-[98%] flex flex-col text-center items-center p-2">
         <div className="w-[38%] text-center font-sansita text-6xl p-3">
           <h3>Catálogo</h3>
@@ -149,11 +138,11 @@ export default function Produtos() {
                 <div className="flex w-full gap-1 justify-center">
                   <div className="flex gap-1 items-center">
                    <button onClick={() => decrementar(prod.idProduto)} className="bg-red-500 w-6 h-6 text-white rounded hover:bg-red-600">-</button>
-                    <span className="border-[1px] rounded w-8">{quantidades[prod.idProduto]}</span>
+                    <span className="border-[1px] rounded w-8"> {quantidades[prod.idProduto] || 0}</span>
                     <button onClick={() => incrementar(prod.idProduto)} className="bg-blue-500 w-6 h-6 text-white rounded hover:bg-blue-600">+</button>
                   </div>
                 </div>
-                <button onClick={() => adicionarAoCarrinho(prod)} className="w-[60%] cursor-pointer rounded font-semibold text-[1rem] border-2 border-amber-700 hover:bg-amber-700 hover:text-[#FFFF]">
+                <button onClick={() => adicionarAoCarrinho(prod, quantidades[prod.idProduto])} className="w-[60%] cursor-pointer rounded font-semibold text-[1rem] border-2 border-amber-700 hover:bg-amber-700 hover:text-[#FFFF]">
                   Comprar
                 </button>
               </div>

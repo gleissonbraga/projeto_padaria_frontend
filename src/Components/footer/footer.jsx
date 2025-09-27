@@ -2,7 +2,7 @@ import { FaInstagram, FaFacebook, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#48271d] text-[#ffddbd] py-12 px-4 sm:px-6 lg:px-8">
+    <footer id="contato" className="bg-[#48271d] text-[#ffddbd] py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* coluna sobre */}
         <div className="space-y-4">

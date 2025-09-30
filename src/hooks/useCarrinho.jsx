@@ -101,6 +101,22 @@ export default function useCarrinho() {
     });
   };
 
+  const inserirQuantidadeCarrinho = (idProduto) => {
+    setItens(itensAtuais => {
+      return itensAtuais.reduce((acc, item) => {
+        if (item.idProduto === idProduto) {
+          if (item.quantidade > 1) {
+            acc.push({ ...item, quantidade: item.quantidade + 1 });
+          }
+          // Se quantidade é 1, não adiciona ao acc (remove completamente)
+        } else {
+          acc.push(item);
+        }
+        return acc;
+      }, []);
+    });
+  };
+
   // Remover produto completamente do carrinho
   const removerProdutoCompleto = (idProduto) => {
     setItens(itensAtuais => 
@@ -165,6 +181,7 @@ export default function useCarrinho() {
     removerProdutoCompleto,
     atualizarQuantidade,
     limparCarrinho,
+    inserirQuantidadeCarrinho,
     
     // Funções de consulta
     obterQuantidade,

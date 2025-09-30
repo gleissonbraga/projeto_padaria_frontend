@@ -4,15 +4,18 @@ import { Link as ScrollLink } from "react-scroll";
 import { useCarrinhoContext } from "../../context/CarrinhoContext";
 import Modal from "../modal/Modal";
 import ItensCarrinho from "../produtos/components/ItensCarrinho";
+import useCarrinho from "../../hooks/useCarrinho";
 
 export default function NavBar() {
   const [select, setSelect] = useState("")
-  const {qtdProdutosDiferentes, } = useCarrinhoContext();
+  const {qtdProdutosDiferentes} = useCarrinhoContext();
+  const { itens } = useCarrinho();
   const [abrirModal, setAbrirModal] = useState(false);
 
   const modalAbrir = () => setAbrirModal(true);
   const modalFechar = () => setAbrirModal(false);
 
+  console.log(itens.length)
 
   return (
     <nav className="flex bg-[#ffddbd] h-50  flex-row justify-evenly items-center fixed w-full z-50 mt-6">
@@ -86,7 +89,7 @@ export default function NavBar() {
           </div>
       </div>
       </div>
-      <Modal Titulo="Meu Carrinho" aberto={abrirModal} FecharModal={modalFechar} Carrinho={true}>
+      <Modal Url={"/dados"} Tamanho="Medio" Titulo="Meu Carrinho" aberto={abrirModal} FecharModal={modalFechar} Carrinho={true}>
         <ItensCarrinho/>
       </Modal>
     </nav>

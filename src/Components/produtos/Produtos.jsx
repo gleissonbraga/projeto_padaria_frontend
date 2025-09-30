@@ -130,10 +130,10 @@ export default function Produtos() {
                 key={prod.idProduto}
                 className="w-[14%] flex flex-col gap-4 border-[0.4px] items-center border-[#3a3737aa] p-2 rounded-3xl hover:scale-[102%] hover:transition-transform duration-700"
               >
-                <figure className="bg-gray-200 w-full h-36 rounded-2xl"></figure>
+                <img src={`/images/${prod.imagem}`} alt={prod.nome} className="bg-gray-200 w-full h-36 rounded-2xl"/>
                 <div>
                   <p>{prod.nome}</p>
-                  <p>R$ {prod.preco}</p>
+                  <p>R$ {prod.preco.toFixed(2)}</p>
                 </div>
                 <div className="flex w-full gap-1 justify-center">
                   <div className="flex gap-1 items-center">

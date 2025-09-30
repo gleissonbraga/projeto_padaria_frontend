@@ -6,12 +6,13 @@ import Footer from "./Components/footer/footer.jsx";
 import Produtos from "./Components/produtos/Produtos.jsx"
 import { CarrinhoProvider } from "./context/CarrinhoContext.jsx";
 import NavBar from "./Components/navbar/NavBar.jsx";
+import DadosPessoa from "./Components/pagamento/DadosPessoa.jsx";
 
 function App() {
   return (
     <div className="App">
       <CarrinhoProvider>
-        <NavBar/>
+      <NavBar/>
       <Routes>
       <Route path="/" element={
           <>
@@ -19,7 +20,8 @@ function App() {
             <Descricao />
           </>
       }/>
-      <Route path="/produtos" element={<Produtos />} />  
+      <Route path="/produtos" element={<Produtos />} />
+      <Route path="/dados" element={<DadosPessoa />}/>
       </Routes>
      <Footer/>
      </CarrinhoProvider>

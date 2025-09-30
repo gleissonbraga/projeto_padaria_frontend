@@ -4,7 +4,7 @@ import type { AxiosInstance} from 'axios';
 const apiClient: AxiosInstance = axios.create({
     baseURL: "http://localhost:5000/api/",
     headers: {'content-type': 'application/json'},
-    timeout: 10000,
+    timeout: 1000000,
 })
 
 // https://padaria-api-sui1.onrender.com/api/

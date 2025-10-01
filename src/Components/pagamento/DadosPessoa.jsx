@@ -1,11 +1,11 @@
 import { useState } from "react"
-import useCarrinho from "../../hooks/useCarrinho"
 import apiClient from "../../api/api"
+import { useCarrinhoContext } from "../../context/CarrinhoContext"
 
 export default function DadosPessoa(){
-    const {itens} = useCarrinho()
-
+    const {itens, limparCarrinho} = useCarrinhoContext()
     const [form, setForm] = useState({ NomePessoa: "", Contato: "", DataRetirada: "", HoraRetirada: "" })
+    const [erro, setErro] = useState({ NomePessoa: false, Contato: false, DataRetirada: false, HoraRetirada: false })
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -14,6 +14,17 @@ export default function DadosPessoa(){
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+
+    const novosErros = {
+    NomePessoa: !form.NomePessoa,
+    Contato: !form.Contato,
+    DataRetirada: !form.DataRetirada,
+    HoraRetirada: !form.HoraRetirada,
+    };
+
+    setErro(novosErros);
+
+    if (Object.values(novosErros).some(Boolean)) return;
     
     const payload = {
     ...form,
@@ -23,23 +34,26 @@ export default function DadosPessoa(){
       Quantidade: item.quantidade
     }))
   }
-     console.log(payload)
-
     try {
         const response = await apiClient.post("pedidos", payload)
+
+        console.log(response.data.codigoPedido, "Pedido Criado")
 
         if(response.data.Error) {
             throw new Error
         } else {
-            const responsePagamento = await apiClient.post(`pagamento/${response.data.CodigoPedido}`)
 
-            console.log("volta do response pagamento", responsePagamento.data)
+            const responsePagamento = await apiClient.post(`pagamento/${response.data.codigoPedido}`)
+            
+            if(responsePagamento.data.Error) throw new Error
 
             let initPoint = responsePagamento.data.preference.result.initPoint
 
+            console.log(responsePagamento.data)
+            
             window.location.href = initPoint
+            limparCarrinho()
         }
-
     } catch (error) {
     console.error("Erro:", error.response?.data || error.message)
     }
@@ -47,75 +61,81 @@ export default function DadosPessoa(){
 
 
     return (
-    <section className="w-full h-screen bg-[#fff] flex justify-center pt-64 pb-6">
-        <form
-          onSubmit={handleSubmit}
-        className=" bg-white shadow-md rounded-lg p-6 flex flex-col gap-4 w-[80%]"
-        >
-        <h2 className="text-xl font-bold text-gray-700 mb-2">
-            Formulário de Retirada
-        </h2>
+    <section className="w-full bg-[#fff] flex justify-center pt-64 pb-6">
+  <form
+    onSubmit={handleSubmit}
+    className="bg-white shadow-md rounded-lg p-6 flex flex-col gap-4 w-[60%]"
+  >
+    <h2 className="text-xl font-bold text-gray-700 mb-2">
+      Dados para Retirada
+    </h2>
 
-        <div>
-            <label className="block text-sm font-medium text-gray-600">
-            Nome
-            </label>
-            <input
-            type="text"
-            name="NomePessoa"
-              value={form.NomePessoa}
-              onChange={handleChange}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
-            />
-        </div>
+    <div>
+      <label className="block text-sm font-medium text-gray-600">
+        Nome <span className="text-red-500">*</span>
+      </label>
+      <input
+        type="text"
+        name="NomePessoa"
+        value={form.NomePessoa}
+        onChange={handleChange}
+        className={`w-full border-2 rounded-lg px-3 py-2  focus:ring-blue-500 outline-none 
+            ${erro.NomePessoa ? "border-red-500 focus:ring-red-500 shadow-red-300 shadow" : "border-gray-300 focus:ring-2"}`}
+      />
+    </div>
 
-        <div>
-            <label className="block text-sm font-medium text-gray-600">
-            Contato
-            </label>
-            <input
-            type="tel"
-            name="Contato"
-              value={form.Contato}
-              onChange={handleChange}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
-            />
-        </div>
+    <div>
+      <label className="block text-sm font-medium text-gray-600">
+        Contato <span className="text-red-500">*</span>
+      </label>
+      <input
+        type="tel"
+        name="Contato"
+        value={form.Contato}
+        onChange={handleChange}
+        className={`w-full border-2 rounded-lg px-3 py-2  focus:ring-blue-500 outline-none
+            ${erro.Contato ? "border-red-500 focus:ring-red-500 shadow-red-300 shadow" : "border-gray-300 focus:ring-2"}`}
+      />
+    </div>
 
-        <div className="flex gap-2">
-            <div className="w-1/2">
-            <label className="block text-sm font-medium text-gray-600">
-                Data Retirada
-            </label>
-            <input
-                type="date"
-                name="DataRetirada"
-                value={form.DataRetirada}
-                onChange={handleChange}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
-            />
-            </div>
+    <div className="flex gap-2">
+      <div className="w-1/2">
+        <label className="block text-sm font-medium text-gray-600">
+          Data Retirada <span className="text-red-500">*</span>
+        </label>
+        <input
+          type="date"
+          name="DataRetirada"
+          value={form.DataRetirada}
+          onChange={handleChange}
+          className={`w-full border-2 rounded-lg px-3 py-2  focus:ring-blue-500 outline-none 
+            ${erro.DataRetirada ? "border-red-500 focus:ring-red-500 shadow-red-300 shadow" : "border-gray-300 focus:ring-2"}`}
+        />
+      </div>
 
-            <div className="w-1/2">
-            <label className="block text-sm font-medium text-gray-600">
-                Hora Retirada
-            </label>
-            <input
-                type="time"
-                name="HoraRetirada"
-                value={form.HoraRetirada}
-                onChange={handleChange}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
-            />
-            </div>
-        </div>
-        <button
-            type="submit"
-            className="bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition mt-20 cursor-pointer"
-        >
-            Realizar Pagamento
-        </button>
-        </form>
-    </section>
+      <div className="w-1/2">
+        <label className="block text-sm font-medium text-gray-600">
+          Hora Retirada <span className="text-red-500">*</span>
+        </label>
+        <input
+          type="time"
+          name="HoraRetirada"
+          value={form.HoraRetirada}
+          onChange={handleChange}
+          className={`w-full border-2 rounded-lg px-3 py-2  focus:ring-blue-500 outline-none 
+            ${erro.HoraRetirada ? "border-red-500 focus:ring-red-500 shadow-red-300 shadow" : "border-gray-300 focus:ring-2"}`}
+        />
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      className="bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition mt-20 cursor-pointer"
+    >
+      Realizar Pagamento
+    </button>
+  </form>
+</section>
+
   )
 }

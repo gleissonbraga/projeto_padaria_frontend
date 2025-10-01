@@ -2,9 +2,10 @@ import { useState } from "react";
 import useCarrinho from "../../../hooks/useCarrinho"
 import Modal from "../../modal/Modal";
 import DadosPessoa from "../../pagamento/DadosPessoa";
+import { useCarrinhoContext } from "../../../context/CarrinhoContext";
 
 export default function ItensCarrinho(){
-    const {inserirQuantidadeCarrinho, limparCarrinho, removerDoCarrinho, removerProdutoCompleto, valorTotal, produtoNoCarrinho, itens} = useCarrinho()
+    const {inserirQuantidadeCarrinho, limparCarrinho, removerDoCarrinho, removerProdutoCompleto, valorTotal, produtoNoCarrinho, itens} = useCarrinhoContext()
 
     return (
         <div className="flex gap-4 w-full">
@@ -31,7 +32,7 @@ export default function ItensCarrinho(){
                 </div>
                 ))}
             </div>
-            <div className="w-[28%] shadow p-2 flex flex-col justify-between rounded" >
+            <div className="w-[28%] h-50 shadow p-2 flex flex-col justify-between rounded" >
                 <h4 className="font-semibold text-[1.2rem]">Resumo da Compra</h4>
                  <div className="flex items-center gap-2">
                     <input

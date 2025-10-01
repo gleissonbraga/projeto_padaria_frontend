@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link} from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { useCarrinhoContext } from "../../context/CarrinhoContext";
@@ -9,13 +9,11 @@ import useCarrinho from "../../hooks/useCarrinho";
 export default function NavBar() {
   const [select, setSelect] = useState("")
   const {qtdProdutosDiferentes} = useCarrinhoContext();
-  const { itens } = useCarrinho();
   const [abrirModal, setAbrirModal] = useState(false);
 
   const modalAbrir = () => setAbrirModal(true);
   const modalFechar = () => setAbrirModal(false);
 
-  console.log(itens.length)
 
   return (
     <nav className="flex bg-[#ffddbd] h-50  flex-row justify-evenly items-center fixed w-full z-50 mt-6">
@@ -60,13 +58,13 @@ export default function NavBar() {
       <div className="flex justify-end gap-4 items-center p-4 w-50%">
         <div className="">
           <div className="flex flex-col text-[#48271d] text-sm font-bold">
-            <span className="font-semibold font-poppins text-[1rem]">
-              {" "}
-              51 99930-3193
+            <span className="font-semibold font-poppins text-[1rem] flex gap-1 items-center">
+              <img src="/images/phone.svg" alt="" />
+              <span>51 99930-3193</span>
             </span>
-            <span className="font-semibold font-poppins text-[1rem]">
-              {" "}
-              51 3333-3333
+             <span className="font-semibold font-poppins text-[1rem] flex gap-1 items-center">
+              <img src="/images/phone.svg" alt="" />
+              <span>51 3333-3333</span>
             </span>
           </div>
         </div>

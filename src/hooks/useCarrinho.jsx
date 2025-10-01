@@ -45,7 +45,7 @@ export default function useCarrinho() {
 
     window.addEventListener('storage', handleStorageChange);
     return () => window.removeEventListener('storage', handleStorageChange);
-  }, []);
+  }, [])
 
   // Só salva no localStorage depois que carregou inicialmente
   useEffect(() => {
@@ -67,8 +67,9 @@ export default function useCarrinho() {
     }
   }, [itens, carregado]);
 
-  const adicionarAoCarrinho = (produto, quantidade = 1) => {
-    setItens(itensAtuais => {
+  const adicionarAoCarrinho = (produto, quantidade = 0) => {
+    if(quantidade > 0){
+      setItens(itensAtuais => {
       const index = itensAtuais.findIndex(p => p.idProduto === produto.idProduto);
       
       if (index !== -1) {
@@ -83,6 +84,7 @@ export default function useCarrinho() {
         return [...itensAtuais, { ...produto, quantidade }];
       }
     });
+    }
   };
 
   const removerDoCarrinho = (idProduto) => {

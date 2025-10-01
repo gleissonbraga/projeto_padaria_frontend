@@ -7,24 +7,34 @@ import Produtos from "./Components/produtos/Produtos.jsx"
 import { CarrinhoProvider } from "./context/CarrinhoContext.jsx";
 import NavBar from "./Components/navbar/NavBar.jsx";
 import DadosPessoa from "./Components/pagamento/DadosPessoa.jsx";
+import PrivateRoute from "./Components/privateRoute/PrivateRoute.jsx";
+import Erro from "./Components/pagamento/Erro.jsx";
 
 function App() {
   return (
     <div className="App">
-      <CarrinhoProvider>
+    <CarrinhoProvider>
       <NavBar/>
       <Routes>
-      <Route path="/" element={
-          <>
-            <Home />
-            <Descricao />
-          </>
-      }/>
-      <Route path="/produtos" element={<Produtos />} />
-      <Route path="/dados" element={<DadosPessoa />}/>
+          <Route path="/" element={
+              <>
+                <Home />
+                <Descricao />
+              </>
+          }/>
+          <Route path="/produtos" element={<Produtos />} />
+          <Route
+                path="/dados"
+                element={
+                  <PrivateRoute>
+                    <DadosPessoa />
+                  </PrivateRoute>
+                }
+              />
+          <Route path="/pagamento/erro" element={<Erro/>} />
       </Routes>
-     <Footer/>
-     </CarrinhoProvider>
+      <Footer/>
+    </CarrinhoProvider>
     </div>
   );
 }

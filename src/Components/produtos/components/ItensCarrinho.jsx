@@ -11,7 +11,7 @@ export default function ItensCarrinho(){
         <div className="flex gap-4 w-full">
             <div className="flex flex-col gap-2 w-[68%] shadow rounded items-center">
                 {itens.map((prod) => (
-                <div className="w-[98%] flex gap-2 border-b-[1px] border-[#e8e8e8] p-2" key={prod.idProduto}>
+                <div className="w-[98%] flex gap-2 border-b-[1px] border-[#48271d63] p-2" key={prod.idProduto}>
                     <div className="w-[20%]">
                         <img src={`/images/${prod.imagem}`} alt={prod.nome} className="rounded" />
                     </div>
@@ -34,7 +34,7 @@ export default function ItensCarrinho(){
             </div>
             <div className="w-[28%] h-50 shadow p-2 flex flex-col justify-between rounded" >
                 <h4 className="font-semibold text-[1.2rem]">Resumo da Compra</h4>
-                 <div className="flex items-center gap-2">
+                 {/* <div className="flex items-center gap-2">
                     <input
                         type="text"
                         placeholder="CUPOM"
@@ -45,7 +45,7 @@ export default function ItensCarrinho(){
                     >
                         Aplicar
                     </button>
-                </div>
+                </div> */}
                 <div className="flex justify-between font-bold">
                     <p className="font-semibold text-[1.2rem]">Total</p>
                     <p>R$ {valorTotal.toFixed(2)}</p>

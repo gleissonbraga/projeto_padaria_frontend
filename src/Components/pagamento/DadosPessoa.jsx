@@ -61,17 +61,17 @@ export default function DadosPessoa(){
 
 
     return (
-    <section className="w-full bg-[#fff] flex justify-center pt-64 pb-6">
+    <section className="w-full bg-[#865439] flex justify-center pt-64 pb-6">
   <form
     onSubmit={handleSubmit}
-    className="bg-white shadow-md rounded-lg p-6 flex flex-col gap-4 w-[60%]"
+    className="bg-[#FFDDBD] shadow-md rounded-lg p-6 flex flex-col gap-4 w-[60%]"
   >
-    <h2 className="text-xl font-bold text-gray-700 mb-2">
+    <h2 className="text-xl font-bold text-[[#865439]] mb-2">
       Dados para Retirada
     </h2>
 
     <div>
-      <label className="block text-sm font-medium text-gray-600">
+      <label className="block text-lg font-medium text-[#E38E00]">
         Nome <span className="text-red-500">*</span>
       </label>
       <input
@@ -79,13 +79,13 @@ export default function DadosPessoa(){
         name="NomePessoa"
         value={form.NomePessoa}
         onChange={handleChange}
-        className={`w-full border-2 rounded-lg px-3 py-2  focus:ring-blue-500 outline-none 
-            ${erro.NomePessoa ? "border-red-500 focus:ring-red-500 shadow-red-300 shadow" : "border-gray-300 focus:ring-2"}`}
+        className={`w-full border-2 rounded-lg px-3 py-2  outline-none 
+            ${erro.NomePessoa ? "border-red-500 focus:ring-red-500 shadow-red-300 shadow" : "border-[#865439]  focus:ring-2"}`}
       />
     </div>
 
     <div>
-      <label className="block text-sm font-medium text-gray-600">
+      <label className="block text-lg font-medium text-[#E38E00]">
         Contato <span className="text-red-500">*</span>
       </label>
       <input
@@ -93,14 +93,14 @@ export default function DadosPessoa(){
         name="Contato"
         value={form.Contato}
         onChange={handleChange}
-        className={`w-full border-2 rounded-lg px-3 py-2  focus:ring-blue-500 outline-none
-            ${erro.Contato ? "border-red-500 focus:ring-red-500 shadow-red-300 shadow" : "border-gray-300 focus:ring-2"}`}
+        className={`w-full border-2 rounded-lg px-3 py-2 outline-none
+            ${erro.Contato ? "border-red-500 focus:ring-red-500 shadow-red-300 shadow" : "border-[#865439]  focus:ring-1"}`}
       />
     </div>
 
     <div className="flex gap-2">
       <div className="w-1/2">
-        <label className="block text-sm font-medium text-gray-600">
+        <label className="block text-lg font-medium text-[#E38E00]">
           Data Retirada <span className="text-red-500">*</span>
         </label>
         <input
@@ -108,13 +108,13 @@ export default function DadosPessoa(){
           name="DataRetirada"
           value={form.DataRetirada}
           onChange={handleChange}
-          className={`w-full border-2 rounded-lg px-3 py-2  focus:ring-blue-500 outline-none 
-            ${erro.DataRetirada ? "border-red-500 focus:ring-red-500 shadow-red-300 shadow" : "border-gray-300 focus:ring-2"}`}
+          className={`w-full border-2 rounded-lg px-3 py-2 outline-none 
+            ${erro.DataRetirada ? "border-red-500 focus:ring-red-500 shadow-red-300 shadow" : "border-[#865439]  focus:ring-1"}`}
         />
       </div>
 
       <div className="w-1/2">
-        <label className="block text-sm font-medium text-gray-600">
+        <label className="block text-lg font-medium text-[#E38E00]">
           Hora Retirada <span className="text-red-500">*</span>
         </label>
         <input
@@ -122,8 +122,8 @@ export default function DadosPessoa(){
           name="HoraRetirada"
           value={form.HoraRetirada}
           onChange={handleChange}
-          className={`w-full border-2 rounded-lg px-3 py-2  focus:ring-blue-500 outline-none 
-            ${erro.HoraRetirada ? "border-red-500 focus:ring-red-500 shadow-red-300 shadow" : "border-gray-300 focus:ring-2"}`}
+          className={`w-full border-2 rounded-lg px-3 py-2  outline-none 
+            ${erro.HoraRetirada ? "border-red-500 focus:ring-red-500 shadow-red-300 shadow" : "border-[#865439]  focus:ring-1"}`}
         />
       </div>
     </div>

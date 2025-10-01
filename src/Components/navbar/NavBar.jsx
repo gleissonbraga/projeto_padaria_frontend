@@ -16,7 +16,7 @@ export default function NavBar() {
 
 
   return (
-    <nav className="flex bg-[#ffddbd] h-50  flex-row justify-evenly items-center fixed w-full z-50 mt-6">
+    <nav className="flex bg-[#ffddbd] h-50  flex-row justify-around items-center fixed w-[76%] rounded-r-2xl z-50 mt-6">
       <div className="flex items-start">
         <img src="/images/image.png" alt="Logo" className="h-40 w-60" />
       </div>
@@ -26,22 +26,22 @@ export default function NavBar() {
           <li 
             onClick={() => setSelect("Inicio")}
             className={
-              `hover:scale-[101%] hover:border-b-4 hover:text-[#5d5d5d] hover:border-amber-500 rounded
-              ${select === "Inicio" ? "border-b-4 text-[#5d5d5d] border-amber-500 rounded" : ""}`}>
+              `hover:scale-[101%] hover:border-b-4 hover:border-[#5d5d5d] hover:text-amber-500 rounded
+              ${select === "Inicio" ? "border-b-4 border-[#5d5d5d] text-amber-500 rounded" : ""}`}>
             <Link to="/">Inicio</Link>
           </li>
           <li
           onClick={() => setSelect("Produtos")}
            className={
-              `hover:scale-[101%] hover:border-b-4 hover:text-[#5d5d5d] hover:border-amber-500 rounded
-              ${select === "Produtos" ? "border-b-4 text-[#5d5d5d] border-amber-500 rounded" : ""}`}>
+              `hover:scale-[101%] hover:border-b-4 hover:border-[#5d5d5d] hover:text-amber-500 rounded
+              ${select === "Produtos" ? "border-b-4 border-[#5d5d5d] text-amber-500 rounded" : ""}`}>
             <Link to="/produtos">Produtos</Link>
           </li>
           <li
           onClick={() => setSelect("Sobre Nós")} 
           className={
-              `hover:scale-[101%] hover:border-b-4 hover:text-[#5d5d5d] hover:border-amber-500 rounded
-              ${select === "Sobre Nós" ? "border-b-4 text-[#5d5d5d] border-amber-500 rounded" : ""}`}>
+              `hover:scale-[101%] hover:border-b-4 hover:border-[#5d5d5d] hover:text-amber-500 rounded
+              ${select === "Sobre Nós" ? "border-b-4 border-[#5d5d5d] text-amber-500 rounded" : ""}`}>
             <a href="#" rel="noopener noreferrer">
               Sobre Nós
             </a>
@@ -49,7 +49,7 @@ export default function NavBar() {
           <li
           onClick={() => setSelect("Contato")}  
           className={
-              `hover:scale-[101%] hover:border-b-4 hover:text-[#5d5d5d] hover:border-amber-500 rounded cursor-pointer
+              `hover:scale-[101%] hover:border-b-4 hover:border-[#5d5d5d] hover:text-amber-500 rounded cursor-pointer
               ${select === "Contato" ? "border-b-4 text-[#5d5d5d] border-amber-500 rounded" : ""}`}>
             <ScrollLink  to="contato" smooth={true} duration={600} offset={-80}>Contato</ScrollLink>
           </li>
@@ -57,9 +57,9 @@ export default function NavBar() {
       </div>
       <div className="flex justify-end gap-4 items-center p-4 w-50%">
         <div className="">
-          <div className="flex flex-col text-[#48271d] text-sm font-bold">
+          <div className="flex flex-col text-[#48271d] text-sm font-bold gap-1">
             <span className="font-semibold font-poppins text-[1rem] flex gap-1 items-center">
-              <img src="/images/phone.svg" alt="" />
+              <img src="/images/whatsapp.svg" alt="" className="w-6 h-6"/>
               <span>51 99930-3193</span>
             </span>
              <span className="font-semibold font-poppins text-[1rem] flex gap-1 items-center">

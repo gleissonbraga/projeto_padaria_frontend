@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import apiClient from "../../api/api";
 import { useCarrinhoContext } from "../../context/CarrinhoContext";
-import Modal from "../modal/Modal";
 
 export default function Produtos() {
   const [produtos, setProdutos] = useState([])
@@ -9,11 +8,7 @@ export default function Produtos() {
   const [produtosSalgados, setProdutosSalgados] = useState([]);
   const [categoriaSelecionada, setCategoriaSelecionada] = useState("Todos");
   const [quantidades, setQuantidades] = useState({});
-  const {adicionarAoCarrinho, obterQuantidade} = useCarrinhoContext();
-  const [abrirModal, setAbrirModal] = useState(false);
-
-  const modalAbrir = () => setAbrirModal(true);
-  const modalFechar = () => setAbrirModal(false);
+  const {adicionarAoCarrinho} = useCarrinhoContext();
 
   useEffect(() => {
     const fetchProdutos = async () => {
@@ -34,7 +29,7 @@ export default function Produtos() {
       } catch (error) {
         console.error("Erro ao buscar produtos:", error);
       }
-    };
+    }
 
     fetchProdutos();
   }, []);
@@ -54,7 +49,7 @@ export default function Produtos() {
   };
   return (
     
-    <section className="w-full bg-[#fff] flex justify-center pt-56 pb-6">
+    <section className="w-full bg-[#865439] flex justify-center pt-56 pb-6 ">
       <div className=" w-[98%] flex flex-col text-center items-center p-2">
         <div className="w-[38%] text-center font-sansita text-6xl p-3">
           <h3>Catálogo</h3>

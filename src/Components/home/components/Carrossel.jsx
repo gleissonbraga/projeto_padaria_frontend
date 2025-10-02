@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const images = [
   "/images/pao-carrossel.png",
   "/images/doce-carrossel.png",
-  "/images/cafe-carrossel.png",
+  "/images/Cafe-carrossel.png",
 ];
 
 export default function Carrossel() {

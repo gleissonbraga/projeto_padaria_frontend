@@ -9,6 +9,8 @@ import NavBar from "./Components/navbar/NavBar.jsx";
 import DadosPessoa from "./Components/pagamento/DadosPessoa.jsx";
 import PrivateRoute from "./Components/privateRoute/PrivateRoute.jsx";
 import Erro from "./Components/pagamento/Erro.jsx";
+import Pendente from "./Components/pagamento/Pendente.jsx";
+import Sucesso from "./Components/pagamento/Sucesso.jsx";
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
                 }
               />
           <Route path="/pagamento/erro" element={<Erro/>} />
+          <Route path="/pagamento/sucesso" element={<Sucesso />} />
+          <Route path="/pagamento/pendente" element={<Pendente/>} />
       </Routes>
       <Footer/>
     </CarrinhoProvider>

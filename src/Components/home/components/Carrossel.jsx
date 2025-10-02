@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 
 const images = [
-  "/images/cafezinho.png",
+  "/images/pao-carrossel.png",
   "/images/doce-carrossel.png",
+  "/images/cafe-carrossel.png",
 ];
 
 export default function Carrossel() {
@@ -17,7 +18,7 @@ export default function Carrossel() {
   }, []);
 
   return (
-    <div className="relative w-[70%] h-[400px] overflow-hidden rounded-2xl">
+    <div className="relative w-[90%] h-[400px] overflow-hidden rounded-2xl">
       {/* Imagens */}
       {images.map((img, index) => (
         <img

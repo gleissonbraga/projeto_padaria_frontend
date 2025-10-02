@@ -33,7 +33,7 @@ export default function ItensCarrinho(){
                 ))}
             </div>
             <div className="w-[28%] h-50 shadow p-2 flex flex-col justify-between rounded" >
-                <h4 className="font-semibold text-[1.2rem]">Resumo da Compra</h4>
+                <h4 className="font-bold text-[1.4rem]">Resumo da Compra</h4>
                  {/* <div className="flex items-center gap-2">
                     <input
                         type="text"

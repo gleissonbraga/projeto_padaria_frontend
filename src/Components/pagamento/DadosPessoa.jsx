@@ -58,15 +58,14 @@ export default function DadosPessoa(){
     console.error("Erro:", error.response?.data || error.message)
     }
   }
-
-
+  
     return (
     <section className="w-full bg-[#865439] flex justify-center pt-64 pb-6">
   <form
     onSubmit={handleSubmit}
     className="bg-[#FFDDBD] shadow-md rounded-lg p-6 flex flex-col gap-4 w-[60%]"
   >
-    <h2 className="text-xl font-bold text-[[#865439]] mb-2">
+    <h2 className="text-3xl font-bold text-[#48271d] mb-2">
       Dados para Retirada
     </h2>
 
@@ -130,7 +129,7 @@ export default function DadosPessoa(){
 
     <button
       type="submit"
-      className="bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition mt-20 cursor-pointer"
+      className="bg-[#48271de4] text-white py-2 rounded-lg hover:bg-[#48271d] transition mt-20 cursor-pointer"
     >
       Realizar Pagamento
     </button>

@@ -7,6 +7,14 @@ const apiClient: AxiosInstance = axios.create({
     timeout: 1000000,
 })
 
+apiClient.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config
+})
+
 // https://padaria-api-sui1.onrender.com/api/
 // http://localhost:5000/api/
 

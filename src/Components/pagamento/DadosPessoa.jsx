@@ -37,8 +37,6 @@ export default function DadosPessoa(){
     try {
         const response = await apiClient.post("pedidos", payload)
 
-        console.log(response.data.codigoPedido, "Pedido Criado")
-
         if(response.data.Error) {
             throw new Error
         } else {
@@ -55,7 +53,7 @@ export default function DadosPessoa(){
             limparCarrinho()
         }
     } catch (error) {
-    console.error("Erro:", error.response?.data || error.message)
+      console.error("Erro:", error.response?.data || error.message)
     }
   }
   

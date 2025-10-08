@@ -22,7 +22,7 @@ export default function ItensCarrinho(){
                             <p>{prod.quantidade}</p>
                             <button onClick={() => inserirQuantidadeCarrinho(prod.idProduto)} className="bg-blue-500 w-4 h-4 text-white rounded hover:bg-blue-600 flex justify-center items-center">+</button>
                         </div>
-                        <button className=" text-blue-600 hover:underline cursor-pointer text-[0.8rem]" 
+                        <button className=" text-[#48271d] hover:underline cursor-pointer text-[0.8rem]" 
                         onClick={() => removerProdutoCompleto(prod.idProduto)}>Excluir</button>
                     </div>
                     <div className="w-[28%] flex flex-col gap-1">

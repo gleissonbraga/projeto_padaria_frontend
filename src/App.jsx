@@ -3,7 +3,8 @@ import Home from "./Components/home/Home.jsx";
 import Descricao from "./Components/images/Descricao.jsx";
 import "./index.css";
 import Footer from "./Components/footer/footer.jsx";
-import Produtos from "./Components/produtos/Produtos.jsx"
+import Sobre from "./Components/sobre/Sobre.jsx";
+import Produtos from "./Components/produtos/Produtos.jsx";
 import { CarrinhoProvider } from "./context/CarrinhoContext.jsx";
 import NavBar from "./Components/navbar/NavBar.jsx";
 import DadosPessoa from "./Components/pagamento/DadosPessoa.jsx";
@@ -15,30 +16,34 @@ import Sucesso from "./Components/pagamento/Sucesso.jsx";
 function App() {
   return (
     <div className="App">
-    <CarrinhoProvider>
-      <NavBar/>
-      <Routes>
-          <Route path="/" element={
+      <CarrinhoProvider>
+        <NavBar />
+        <Routes>
+          <Route
+            path="/"
+            element={
               <>
                 <Home />
                 <Descricao />
               </>
-          }/>
+            }
+          />
           <Route path="/produtos" element={<Produtos />} />
           <Route
-                path="/dados"
-                element={
-                  <PrivateRoute>
-                    <DadosPessoa />
-                  </PrivateRoute>
-                }
-              />
-          <Route path="/pagamento/erro" element={<Erro/>} />
+            path="/dados"
+            element={
+              <PrivateRoute>
+                <DadosPessoa />
+              </PrivateRoute>
+            }
+          />
+          <Route path="/sobre" element={<Sobre />} />
+          <Route path="/pagamento/erro" element={<Erro />} />
           <Route path="/pagamento/sucesso" element={<Sucesso />} />
-          <Route path="/pagamento/pendente" element={<Pendente/>} />
-      </Routes>
-      <Footer/>
-    </CarrinhoProvider>
+          <Route path="/pagamento/pendente" element={<Pendente />} />
+        </Routes>
+        <Footer />
+      </CarrinhoProvider>
     </div>
   );
 }

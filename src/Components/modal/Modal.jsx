@@ -43,7 +43,7 @@ export default function Modal({Titulo, Tamanho, Carrinho = false, aberto, Fechar
                 <button className={`${Carrinho ? "hidden" : " hover:bg-green-700 hover:text-amber-50 border-4 border-green-700"} rounded-[5px] p-1.5  font-semibold cursor-pointer`}>Confirmar</button>
 
                 {qtdProdutosDiferentes > 0 && (
-                    <Link to={Url} onClick={FecharModal} className={`${Carrinho ? "hover:bg-blue-700 hover:text-amber-50 border-4 border-blue-700 rounded-[5px] p-1.5  font-semibold cursor-pointer" : "hidden"}`}>Finalizar Compra</Link>
+                    <Link to={Url} onClick={FecharModal} className={`${Carrinho ? "hover:bg-[#e49005] hover:text-amber-50 border-4 border-[#e49005] rounded-[5px] p-1.5  font-semibold cursor-pointer" : "hidden"}`}>Finalizar Compra</Link>
                 )}
 
                 <button onClick={FecharModal}

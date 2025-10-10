@@ -4,7 +4,7 @@ import { Link as ScrollLink } from "react-scroll";
 import { useCarrinhoContext } from "../../context/CarrinhoContext";
 import Modal from "../modal/Modal";
 import ItensCarrinho from "../produtos/components/ItensCarrinho";
-import useCarrinho from "../../hooks/useCarrinho";
+import { validarToken } from "../../functions/validarToken";
 
 export default function NavBar() {
   const [select, setSelect] = useState("")
@@ -12,9 +12,9 @@ export default function NavBar() {
   const [abrirModal, setAbrirModal] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+
   const modalAbrir = () => setAbrirModal(true);
   const modalFechar = () => setAbrirModal(false);
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,8 +32,7 @@ export default function NavBar() {
   return (
     <nav className={`flex bg-[#ffddbd] font-poppins  shadow-2xl flex-row justify-around items-center fixed  rounded-tr-full rounded-br-4xl z-50 mt-6 transition-all duration-1000
      ${isScrolled ? "w-[16%] h-36" : "w-[82%] h-50"}`}>
-      
-
+       
       {!isScrolled ? (<div className="flex items-start">
         <img src="/images/image.png" alt="Logo" className="h-40 w-60" />
       </div>) : (<div className="hidden">
@@ -56,7 +55,7 @@ export default function NavBar() {
                 className={
                   `hover:scale-[101%] hover:border-b-4 hover:border-[#5d5d5d] hover:text-amber-500 rounded
               ${select === "Produtos" ? "border-b-4 border-[#5d5d5d] text-amber-500 rounded" : ""}`}>
-                <Link to="/produtos">Cardápio</Link>
+                <Link to="/produtos">Produtos</Link>
               </li>
               <li
                 onClick={() => setSelect("Sobre Nós")}

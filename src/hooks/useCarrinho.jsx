@@ -107,7 +107,7 @@ export default function useCarrinho() {
     setItens(itensAtuais => {
       return itensAtuais.reduce((acc, item) => {
         if (item.idProduto === idProduto) {
-          if (item.quantidade > 1) {
+          if (item.quantidade >= 1) {
             acc.push({ ...item, quantidade: item.quantidade + 1 });
           }
           // Se quantidade é 1, não adiciona ao acc (remove completamente)

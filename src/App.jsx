@@ -14,6 +14,7 @@ import Sucesso from "./Components/pagamento/Sucesso.jsx";
 import Login from "./Components/login/Login.jsx";
 import Admin from "./Components/Admin/Admin.jsx";
 import AdminPrivateRoute from "./Components/privateRoute/AdminPrivateRoute.jsx";
+import LinkPageAdmin from "./Components/Admin/LinkPageAdmin.jsx";
 
 function App() {
   const location = useLocation();
@@ -24,6 +25,7 @@ function App() {
   return (
     <CarrinhoProvider>
       {!hideLayout && <NavBar />}
+      {!hideLayout && <LinkPageAdmin/>}
 
       <Routes>
         <Route

@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faBasketShopping, faChevronDown, faChevronRight, faCoffee, faGear, faHouse, faLayerGroup, faPaste, faPenToSquare, faPercent, faRegistered, faRightFromBracket, faUser, faUtensils, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 export default function NavBarAdmin() {
     const [abrirMenu, setAbrirMenu] = useState(false)
@@ -65,7 +65,9 @@ export default function NavBarAdmin() {
                             <div className="w-full p-3 flex flex-col items-center">
                                 <ul className="w-full text-lg flex flex-col gap-1">
                                     <li className={`cursor-pointer hover:rounded p-2 
-                                        ${select === "Inicio" ? "bg-[#4F46E5] hover:bg-[#4a43cf] text-white rounded" : "hover:bg-gray-200"}`} onClick={() => setSelect("Inicio")}><FontAwesomeIcon icon={faHouse} /> Inicio</li>
+                                        ${select === "Inicio" ? "bg-[#4F46E5] hover:bg-[#4a43cf] text-white rounded" : "hover:bg-gray-200"}`} onClick={() => setSelect("Inicio")}><Link to="/admin/"><FontAwesomeIcon icon={faHouse} /> Inicio</Link>
+                                        </li>
+                                         
                                     <li onClick={() => { handleMenuCadastro(); setSelect("Cadastros")}} 
                                     className={`cursor-pointer hover:rounded p-2 flex gap-2 
                                     ${select === "Cadastros" ? "bg-[#4F46E5] hover:bg-[#4a43cf] text-white rounded" : "hover:bg-gray-200"}`}>
@@ -77,22 +79,22 @@ export default function NavBarAdmin() {
                                             <li onClick={() => setSelect("Categoria")}
                                             className={`w-[80%] cursor-pointer hover:rounded p-2 
                                             ${select === "Categoria" ? "bg-[#4F46E5] hover:bg-[#4a43cf] text-white rounded" : "hover:bg-gray-200"}`}>
-                                                <FontAwesomeIcon icon={faLayerGroup} /> Categoria
+                                                <Link to="/admin/cadastro/categoria"><FontAwesomeIcon icon={faLayerGroup} /> Categoria</Link>
                                             </li>
                                             <li onClick={() => setSelect("Produtos")}
                                             className={`w-[80%]  cursor-pointer  hover:rounded p-2 
                                             ${select === "Produtos" ? "bg-[#4F46E5] hover:bg-[#4a43cf] text-white rounded" : "hover:bg-gray-200"} `}>
-                                                <FontAwesomeIcon icon={faUtensils} /> Produtos
+                                                 <Link to="/admin/cadastro/produtos"><FontAwesomeIcon icon={faUtensils} />  Produtos</Link>
                                             </li>
                                             <li onClick={() => setSelect("Promoções")}
                                             className={`w-[80%]  cursor-pointer  hover:rounded p-2 
                                             ${select === "Promoções" ? "bg-[#4F46E5] hover:bg-[#4a43cf] text-white rounded" : "hover:bg-gray-200"} `}>
-                                                <FontAwesomeIcon icon={faPercent} /> Promoções
+                                                <Link to="/admin/cadastro/promocoes"><FontAwesomeIcon icon={faPercent} />  Promoções</Link>
                                             </li>
                                             <li onClick={() => setSelect("Usuários")}
                                             className={`w-[80%]  cursor-pointer  hover:rounded p-2 
                                             ${select === "Usuários" ? "bg-[#4F46E5] hover:bg-[#4a43cf] text-white rounded" : "hover:bg-gray-200"} `}>
-                                                <FontAwesomeIcon icon={faUser} /> Usuários
+                                                <Link to="/admin/cadastro/usuarios"><FontAwesomeIcon icon={faUser} />  Usuários</Link>
                                             </li>
                                         </ul>
                                     )}

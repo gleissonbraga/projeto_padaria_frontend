@@ -26,7 +26,6 @@ export default function LinkPageAdmin(){
 
     return (
       <>
-      
         {
           areaAdmin && (
             <div onMouseLeave={() => setShow(false)} onMouseEnter={() => setShow(true)} className={

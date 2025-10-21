@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { useCarrinhoContext } from "../../context/CarrinhoContext";
 import Modal from "../modal/Modal";
 import ItensCarrinho from "../produtos/components/ItensCarrinho";
-import { validarToken } from "../../functions/validarToken";
 
 export default function NavBar() {
   const [select, setSelect] = useState("")
   const { qtdProdutosDiferentes } = useCarrinhoContext();
-  const [abrirModal, setAbrirModal] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const [abrirModal, setAbrirModal] = useState(false);
 
   const modalAbrir = () => setAbrirModal(true);
   const modalFechar = () => setAbrirModal(false);
@@ -71,7 +69,7 @@ export default function NavBar() {
                 className={
                   `hover:scale-[101%] hover:border-b-4 hover:border-[#5d5d5d] hover:text-amber-500 rounded cursor-pointer
               ${select === "Contato" ? "border-b-4 text-[#5d5d5d] border-amber-500 rounded" : ""}`}>
-                <ScrollLink to="contato" smooth={true} duration={600} offset={-80}>Contato</ScrollLink>
+                <ScrollLink to="footer" smooth={true} duration={600} offset={-80}>Contato</ScrollLink>
               </li>
             </ul>
           </div>

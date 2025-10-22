@@ -3,6 +3,7 @@ import Home from "./Components/home/Home.jsx";
 import Descricao from "./Components/images/Descricao.jsx";
 import "./index.css";
 import Footer from "./Components/footer/footer.jsx";
+import Sobre from "./Components/sobre/Sobre.jsx";
 import Produtos from "./Components/produtos/Produtos.jsx";
 import { CarrinhoProvider } from "./context/CarrinhoContext.jsx";
 import NavBar from "./Components/navbar/NavBar.jsx";
@@ -48,6 +49,7 @@ const hideLayout =
             </PrivateRoute>
           }
         />
+        <Route path="/sobre" element={<Sobre />} />
         <Route path="/pagamento/erro" element={<Erro />} />
         <Route path="/pagamento/sucesso" element={<Sucesso />} />
         <Route path="/pagamento/pendente" element={<Pendente />} />

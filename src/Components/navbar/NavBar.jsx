@@ -6,7 +6,7 @@ import Modal from "../modal/Modal";
 import ItensCarrinho from "../produtos/components/ItensCarrinho";
 
 export default function NavBar() {
-  const [select, setSelect] = useState("")
+  const [select, setSelect] = useState("");
   const { qtdProdutosDiferentes } = useCarrinhoContext();
   const [isScrolled, setIsScrolled] = useState(false);
   const [abrirModal, setAbrirModal] = useState(false);
@@ -38,14 +38,20 @@ export default function NavBar() {
       </div>)}
 
       {!isScrolled ? (
-        <div className={`transition-all duration-1000 flex flex-col-reverse gap-6`}>
+        <div
+          className={`transition-all duration-1000 flex flex-col-reverse gap-6`}
+        >
           <div className="border-t-2 p-2 border-[#48271d] ">
             <ul className="flex gap-6 h-10 text-2xl text-[#48271d] font-bold">
               <li
                 onClick={() => setSelect("Inicio")}
-                className={
-                  `hover:scale-[101%] hover:border-b-4 hover:border-[#5d5d5d] hover:text-amber-500 rounded
-              ${select === "Inicio" ? "border-b-4 border-[#5d5d5d] text-amber-500 rounded" : ""}`}>
+                className={`hover:scale-[101%] hover:border-b-4 hover:border-[#5d5d5d] hover:text-amber-500 rounded
+              ${
+                select === "Inicio"
+                  ? "border-b-4 border-[#5d5d5d] text-amber-500 rounded"
+                  : ""
+              }`}
+              >
                 <Link to="/">Inicio</Link>
               </li>
               <li
@@ -57,12 +63,14 @@ export default function NavBar() {
               </li>
               <li
                 onClick={() => setSelect("Sobre Nós")}
-                className={
-                  `hover:scale-[101%] hover:border-b-4 hover:border-[#5d5d5d] hover:text-amber-500 rounded
-              ${select === "Sobre Nós" ? "border-b-4 border-[#5d5d5d] text-amber-500 rounded" : ""}`}>
-                <a href="#" rel="noopener noreferrer">
-                  Sobre Nós
-                </a>
+                className={`hover:scale-[101%] hover:border-b-4 hover:border-[#5d5d5d] hover:text-amber-500 rounded
+              ${
+                select === "Sobre Nós"
+                  ? "border-b-4 border-[#5d5d5d] text-amber-500 rounded"
+                  : ""
+              }`}
+              >
+                <Link to="/sobre">Sobre Nós</Link>
               </li>
               <li
                 onClick={() => setSelect("Contato")}
@@ -89,8 +97,9 @@ export default function NavBar() {
             <div className="flex">
               <button onClick={modalAbrir} className="cursor-pointer">
                 <div
-                  className={`w-6 h-6 bg-red-600 rounded-4xl relative top-3 left-5 text-center text-white font-semibold ${qtdProdutosDiferentes == 0 ? "hidden" : ""
-                    }`}
+                  className={`w-6 h-6 bg-red-600 rounded-4xl relative top-3 left-5 text-center text-white font-semibold ${
+                    qtdProdutosDiferentes == 0 ? "hidden" : ""
+                  }`}
                 >
                   {qtdProdutosDiferentes}
                 </div>
@@ -110,42 +119,51 @@ export default function NavBar() {
             <ul className="flex flex-col gap-1 text-[18px] text-[#48271d] font-bold">
               <li
                 onClick={() => setSelect("Inicio")}
-                className={
-                  ` hover:text-amber-500 rounded
-              ${select === "Inicio" ? "text-amber-500 rounded" : ""}`}>
+                className={` hover:text-amber-500 rounded
+              ${select === "Inicio" ? "text-amber-500 rounded" : ""}`}
+              >
                 <Link to="/">Inicio</Link>
               </li>
               <li
                 onClick={() => setSelect("Produtos")}
-                className={
-                  `hover:text-amber-500 rounded
-              ${select === "Produtos" ? "text-amber-500 rounded" : ""}`}>
+                className={`hover:text-amber-500 rounded
+              ${select === "Produtos" ? "text-amber-500 rounded" : ""}`}
+              >
                 <Link to="/produtos">Produtos</Link>
               </li>
               <li
                 onClick={() => setSelect("Sobre Nós")}
-                className={
-                  `hover:text-amber-500 rounded
-              ${select === "Sobre Nós" ? "text-amber-500 rounded" : ""}`}>
-                <a href="#" rel="noopener noreferrer">
-                  Sobre Nós
-                </a>
+                className={`hover:text-amber-500 rounded
+              ${select === "Sobre Nós" ? "text-amber-500 rounded" : ""}`}
+              >
+                <Link to="/sobre">Sobre Nós</Link>
               </li>
               <li
                 onClick={() => setSelect("Contato")}
-                className={
-                  `hover:text-amber-500 rounded cursor-pointer
-              ${select === "Contato" ? " border-amber-500 rounded" : ""}`}>
-                <ScrollLink to="contato" smooth={true} duration={600} offset={-80}>Contato</ScrollLink>
+                className={`hover:text-amber-500 rounded cursor-pointer
+              ${select === "Contato" ? " border-amber-500 rounded" : ""}`}
+              >
+                <ScrollLink
+                  to="contato"
+                  smooth={true}
+                  duration={600}
+                  offset={-80}
+                >
+                  Contato
+                </ScrollLink>
               </li>
             </ul>
           </div>
           <div className="flex justify-end gap-4 items-center p-4 w-50%">
             <div className="flex">
-              <button onClick={modalAbrir} className="cursor-pointer hover:scale-[104%]">
+              <button
+                onClick={modalAbrir}
+                className="cursor-pointer hover:scale-[104%]"
+              >
                 <div
-                  className={`w-6 h-6 bg-red-600 rounded-4xl  relative top-3 left-5 text-center text-white font-semibold ${qtdProdutosDiferentes == 0 ? "hidden" : ""
-                    }`}
+                  className={`w-6 h-6 bg-red-600 rounded-4xl  relative top-3 left-5 text-center text-white font-semibold ${
+                    qtdProdutosDiferentes == 0 ? "hidden" : ""
+                  }`}
                 >
                   {qtdProdutosDiferentes}
                 </div>
@@ -158,8 +176,16 @@ export default function NavBar() {
               </button>
             </div>
           </div>
-        </div>)}
-      <Modal Url={"/dados"} Tamanho="Medio" Titulo="Meu Carrinho" aberto={abrirModal} FecharModal={modalFechar} Carrinho={true}>
+        </div>
+      )}
+      <Modal
+        Url={"/dados"}
+        Tamanho="Medio"
+        Titulo="Meu Carrinho"
+        aberto={abrirModal}
+        FecharModal={modalFechar}
+        Carrinho={true}
+      >
         <ItensCarrinho />
       </Modal>
     </nav>

@@ -12,6 +12,10 @@ export default function ItensCarrinho(){
     return (
         <div className="flex gap-4 w-full">
             <div className={`flex flex-col gap-2 w-[68%] shadow rounded items-center ${itens.length > 4 ? "overflow-y-scroll overscroll-contain max-h-[400px]" : ""}`}>
+                {itens.length > 0 ? (
+                    <>
+                    
+                
                 {itens.map((prod) => (
                 <div className="w-[98%] flex gap-2 border-b-[1px] border-[#48271d63] p-2" key={prod.idProduto}>
                     <div className="w-[20%]">
@@ -44,6 +48,13 @@ export default function ItensCarrinho(){
                     </div>
                 </div>
                 ))}
+                </>
+                ) : 
+                (
+                    <div className="flex justify-center items-center h-full">
+                        <p>Seu carrinho está vazio.</p>
+                    </div>
+                )}
             </div>
             <div className="w-[28%] h-50 shadow p-2 flex flex-col justify-between rounded" >
                 <h4 className="font-bold text-[1.2rem]">Resumo da Compra</h4>

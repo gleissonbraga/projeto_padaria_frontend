@@ -17,7 +17,6 @@ export default function Modal({Titulo, Tamanho, Carrinho = false, aberto, Fechar
         Tamanho = "90"
     }
 
-
     const handleClick = (e) => {
         if (qtdProdutosDiferentes === 0) {
         e.preventDefault()
@@ -28,7 +27,9 @@ export default function Modal({Titulo, Tamanho, Carrinho = false, aberto, Fechar
 // 
     return (
         <div  className={`fixed inset-0 z-40 bg-[#0000008a] flex justify-center items-center ${CorTexto == undefined ? "text-[#48271d]" : `bg-[${CorTexto}]`}`}>
-            <div className={`${CorModal == undefined ? "bg-[#FFDDBD]" : `bg-[${CorModal}]`} w-[${Tamanho}%] absolute z-[80] top-30 rounded-2xl flex flex-col items-center shadow-2xl justify-around`}>
+            <div className={`${CorModal == undefined ? "bg-[#FFDDBD]" : CorModal} w-[${Tamanho}%] absolute z-[80] top-30 rounded-2xl flex flex-col items-center shadow-2xl justify-around`}
+            style={{ color: CorModal ?? "#48271d" }}
+            >
             <div className="p-4 w-[70%]">
                 <h3 className="text-2xl font-semibold font-poppins">{Titulo}</h3>
             </div>

@@ -6,15 +6,15 @@ import { faCartPlus, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function Produtos() {
   const [produtos, setProdutos] = useState([])
-  const [produtosDoces, setProdutosDoces] = useState([]);
-  const [produtosSalgados, setProdutosSalgados] = useState([]);
-  const [produtosPaes, setProdutosPaes] = useState([]);
-  const [produtosTortas, setProdutosTortas] = useState([]);
-  const [produtosSucos, setProdutosSucos] = useState([]);
+  const [produtosDoces, setProdutosDoces] = useState([])
+  const [produtosSalgados, setProdutosSalgados] = useState([])
+  const [produtosPaes, setProdutosPaes] = useState([])
+  const [produtosTortas, setProdutosTortas] = useState([])
+  const [produtosSucos, setProdutosSucos] = useState([])
   const [toastVisible, setToastVisible] = useState(false)
-  const [categoriaSelecionada, setCategoriaSelecionada] = useState("Todos");
-  const [quantidades, setQuantidades] = useState({});
-  const {adicionarAoCarrinho} = useCarrinhoContext();
+  const [categoriaSelecionada, setCategoriaSelecionada] = useState("Todos")
+  const [quantidades, setQuantidades] = useState({})
+  const {adicionarAoCarrinho} = useCarrinhoContext()
 
   useEffect(() => {
     const fetchProdutos = async () => {
@@ -189,7 +189,7 @@ export default function Produtos() {
         </article>
       </div>
         {toastVisible && (
-            <div className={`w-[18%] p-2 bg-blue-400 border-l-4 border-blue-600 fixed top-4 right-6 transform transition-all duration-1500 ease-in-out ${toastVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}>
+            <div className={`w-[18%] p-2 bg-[#fe9800b3] border-l-4 border-[#FE9A00] fixed top-4 right-6 transform transition-all duration-1500 ease-in-out ${toastVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}>
                 <p className="text-white font-extralight text-center">Item Adicionado ao Carrinho</p>
             </div>
             )}

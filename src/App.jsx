@@ -15,19 +15,19 @@ import Login from "./Components/login/Login.jsx";
 import Admin from "./Components/Admin/Admin.jsx";
 import AdminPrivateRoute from "./Components/privateRoute/AdminPrivateRoute.jsx";
 import LinkPageAdmin from "./Components/Admin/LinkPageAdmin.jsx";
+import Sobre from "./Components/sobre/Sobre.jsx";
 
 function App() {
   const location = useLocation();
 
   // Oculta NavBar e Footer apenas na página de login
-const hideLayout =
-  location.pathname === "/login" || location.pathname.startsWith("/admin");
-
+  const hideLayout =
+    location.pathname === "/login" || location.pathname.startsWith("/admin");
 
   return (
     <CarrinhoProvider>
       {!hideLayout && <NavBar />}
-      {!hideLayout && <LinkPageAdmin/>}
+      {!hideLayout && <LinkPageAdmin />}
 
       <Routes>
         <Route
@@ -52,12 +52,15 @@ const hideLayout =
         <Route path="/pagamento/sucesso" element={<Sucesso />} />
         <Route path="/pagamento/pendente" element={<Pendente />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/admin/*" 
-        element={
-          <AdminPrivateRoute>
-            <Admin />
-        </AdminPrivateRoute>} />
-
+        <Route path="/sobre" element={<Sobre />} />
+        <Route
+          path="/admin/*"
+          element={
+            <AdminPrivateRoute>
+              <Admin />
+            </AdminPrivateRoute>
+          }
+        />
       </Routes>
 
       {!hideLayout && <Footer />}

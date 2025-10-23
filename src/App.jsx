@@ -16,7 +16,6 @@ import Login from "./Components/login/Login.jsx";
 import Admin from "./Components/Admin/Admin.jsx";
 import AdminPrivateRoute from "./Components/privateRoute/AdminPrivateRoute.jsx";
 import LinkPageAdmin from "./Components/Admin/LinkPageAdmin.jsx";
-import Sobre from "./Components/sobre/Sobre.jsx";
 
 function App() {
   const location = useLocation();

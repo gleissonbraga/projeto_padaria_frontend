@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { useCarrinhoContext } from "../../context/CarrinhoContext";
 import Modal from "../modal/Modal";
@@ -28,14 +28,19 @@ export default function NavBar() {
   }, []);
 
   return (
-    <nav className={`flex bg-[#ffddbd] font-poppins  shadow-2xl flex-row justify-around items-center fixed  rounded-tr-full rounded-br-4xl z-50 mt-6 transition-all duration-1000
-     ${isScrolled ? "w-[16%] h-36" : "w-[82%] h-50"}`}>
-       
-      {!isScrolled ? (<div className="flex items-start">
-        <img src="/images/image.png" alt="Logo" className="h-40 w-60" />
-      </div>) : (<div className="hidden">
-        <img src="/images/image.png" alt="Logo" className="h-40 w-60" />
-      </div>)}
+    <nav
+      className={`flex bg-[#ffddbd] font-poppins  shadow-2xl flex-row justify-around items-center fixed  rounded-tr-full rounded-br-4xl z-50 mt-6 transition-all duration-1000
+     ${isScrolled ? "w-[16%] h-36" : "w-[82%] h-50"}`}
+    >
+      {!isScrolled ? (
+        <div className="flex items-start">
+          <img src="/images/image.png" alt="Logo" className="h-40 w-60" />
+        </div>
+      ) : (
+        <div className="hidden">
+          <img src="/images/image.png" alt="Logo" className="h-40 w-60" />
+        </div>
+      )}
 
       {!isScrolled ? (
         <div
@@ -56,9 +61,13 @@ export default function NavBar() {
               </li>
               <li
                 onClick={() => setSelect("Produtos")}
-                className={
-                  `hover:scale-[101%] hover:border-b-4 hover:border-[#5d5d5d] hover:text-amber-500 rounded
-              ${select === "Produtos" ? "border-b-4 border-[#5d5d5d] text-amber-500 rounded" : ""}`}>
+                className={`hover:scale-[101%] hover:border-b-4 hover:border-[#5d5d5d] hover:text-amber-500 rounded
+              ${
+                select === "Produtos"
+                  ? "border-b-4 border-[#5d5d5d] text-amber-500 rounded"
+                  : ""
+              }`}
+              >
                 <Link to="/produtos">Produtos</Link>
               </li>
               <li
@@ -74,10 +83,21 @@ export default function NavBar() {
               </li>
               <li
                 onClick={() => setSelect("Contato")}
-                className={
-                  `hover:scale-[101%] hover:border-b-4 hover:border-[#5d5d5d] hover:text-amber-500 rounded cursor-pointer
-              ${select === "Contato" ? "border-b-4 text-[#5d5d5d] border-amber-500 rounded" : ""}`}>
-                <ScrollLink to="footer" smooth={true} duration={600} offset={-80}>Contato</ScrollLink>
+                className={`hover:scale-[101%] hover:border-b-4 hover:border-[#5d5d5d] hover:text-amber-500 rounded cursor-pointer
+              ${
+                select === "Contato"
+                  ? "border-b-4 text-[#5d5d5d] border-amber-500 rounded"
+                  : ""
+              }`}
+              >
+                <ScrollLink
+                  to="footer"
+                  smooth={true}
+                  duration={600}
+                  offset={-80}
+                >
+                  Contato
+                </ScrollLink>
               </li>
             </ul>
           </div>

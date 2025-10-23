@@ -2,8 +2,7 @@ import React from "react";
 
 export default function Sobre() {
   return (
-    // A classe "pt-32" aqui empurra todo o conteúdo para baixo, resolvendo o problema do título
-    <div className="bg-[#67400c62] pt-82 pb-20">
+    <div className="bg-[#ffddbd]/20 pt-82 pb-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-[#48271d] tracking-tight">
@@ -47,14 +46,11 @@ export default function Sobre() {
             </div>
           </div>
 
-          {/* ========================================================== */}
-          {/* SEÇÃO DE IMAGENS ATUALIZADA PARA USAR 4 FOTOS EM UM GRID 2X2 */}
-          {/* ========================================================== */}
           <div className="grid grid-cols-2 grid-rows-2 gap-4 h-[500px]">
             {/* Imagem 1 */}
             <div className="relative rounded-lg overflow-hidden shadow-lg">
               <img
-                src="/images/sobre/sobre-1.jpg"
+                src="/images/sobre-1.jpg"
                 alt="Pão artesanal"
                 className="w-full h-full object-cover"
               />
@@ -63,7 +59,7 @@ export default function Sobre() {
             {/* Imagem 2 */}
             <div className="relative rounded-lg overflow-hidden shadow-lg">
               <img
-                src="/images/sobre/sobre-2.jpg"
+                src="/images/sobre-2.jpg"
                 alt="Ambiente da padaria"
                 className="w-full h-full object-cover"
               />
@@ -72,7 +68,7 @@ export default function Sobre() {
             {/* Imagem 3 */}
             <div className="relative rounded-lg overflow-hidden shadow-lg">
               <img
-                src="/images/sobre/sobre-3.jpg"
+                src="/images/sobre-3.jpg"
                 alt="Café da padaria"
                 className="w-full h-full object-cover"
               />
@@ -81,8 +77,8 @@ export default function Sobre() {
             {/* Imagem 4 */}
             <div className="relative rounded-lg overflow-hidden shadow-lg">
               <img
-                src="/images/sobre/sobre-4.jpg"
-                alt="Detalhe de produto"
+                src="/images/sobre-4.jpg"
+                alt="Torta da padaria "
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-[#c78b59]/30 mix-blend-multiply"></div>

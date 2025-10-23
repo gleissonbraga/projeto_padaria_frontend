@@ -189,8 +189,8 @@ export default function ProdutosAdmin() {
                                         <td className="pl-2">{prod.preco}</td>
                                         <td className="pl-2">{prod.quantidade}</td>
                                         <td className="pl-2">{prod.nomeCategoria}</td>
-                                        <td className="pl-2 flex gap-2 justify-center items-center">
-                                            <button onClick={() => { modalAbrirEditar(); setFormUpdate({ Id: prod.idProduto, NomeCategoria: prod.nomeCategoria }) }} className="text-blue-500 cursor-pointer hover:scale-[106%]"><FontAwesomeIcon icon={faEdit} /></button>
+                                        <td className="p-2">
+                                            <button onClick={() => { modalAbrirEditar(); setFormUpdate({ Id: prod.idProduto, NomeCategoria: prod.nomeCategoria }) }} className="text-blue-500 cursor-pointer hover:scale-[106%] mr-2"><FontAwesomeIcon icon={faEdit} /></button>
 
                                             <button onClick={() => { modalAbrirExcluir(); setId(prod.idProduto) }} className="text-red-500 cursor-pointer hover:scale-[106%]"><FontAwesomeIcon icon={faTrash} /></button>
                                         </td>

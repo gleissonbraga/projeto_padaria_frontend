@@ -3,7 +3,7 @@ import React from "react";
 export default function Sobre() {
   return (
     // A classe "pt-32" aqui empurra todo o conteúdo para baixo, resolvendo o problema do título
-    <div className="bg-[#ffddbd]/20 pt-82 pb-20">
+    <div className="bg-[#67400c62] pt-82 pb-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-[#48271d] tracking-tight">

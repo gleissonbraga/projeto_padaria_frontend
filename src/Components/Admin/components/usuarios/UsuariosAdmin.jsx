@@ -6,7 +6,7 @@ import apiClient from "../../../../api/api";
 import Modal from "../../../modal/Modal";
 
 export default function UsuariosAdmin(){
-    const [produtos, setProdutos] = useState([{ idProduto: 0, nome: "", preco: 0, quantidade: 0, imagem: "", nomeCategoria: "", codigoCategoria: 0 }])
+    const [produtos, setProdutos] = useState([{ idProduto: 0, nome: "", preco: 0, quantidade: 0, imagem: "", nomeCategoria: "", codigoCategoria: 0, Status: "" }])
     const [categorias, setCategorias] = useState([{ codigoCategoria: 0, nomeCategoria: "" }])
     const [abrirModalCadastro, setAbrirModalCadastro] = useState(false)
     const [abrirModalEditar, setAbrirModalEditar] = useState(false)
@@ -179,7 +179,7 @@ export default function UsuariosAdmin(){
                     </h3>
                 </div>
                 <div className="w-full p-6">
-                    <button onClick={modalAbrirCadastro} className="
+                    <button onCliitck={modalAbrirCadastro} className="
                     px-3 border-2 border-[#000000] bg-[#000000bd] text-white rounded cursor-pointer
                      hover:bg-[#000000] hover:scale-[104%] transform transition delay-100">
                         <FontAwesomeIcon icon={faPlus} /> Adcionar
@@ -195,9 +195,6 @@ export default function UsuariosAdmin(){
                                     </th>
                                     <th className="p-2">
                                         Código
-                                    </th>
-                                    <th className="p-2">
-                                        Data
                                     </th>
                                     <th className="p-2">
                                         Nome
@@ -223,11 +220,11 @@ export default function UsuariosAdmin(){
                                             <img src={`/images/produtos/${prod.imagem}`} alt="" className="w-20 h-15" />
                                         </td>
                                         <td className="pl-4">{prod.idProduto}</td>
-                                        <td className="pl-4">{prod.data}</td>
                                         <td className="pl-2">{prod.nome}</td>
                                         <td className="pl-2">{prod.preco.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</td>
                                         <td className="pl-2 text-center">{prod.quantidade}</td>
                                         <td className="pl-2">{prod.nomeCategoria}</td>
+                                        <td className="pl-2">{prod.Status}</td>
                                         <td className="p-2">
                                             <button onClick={() => 
                                                 { modalAbrirEditar(); setFormUpdate({ idProduto: prod.idProduto, nome: prod.nome, preco: prod.preco, quantidade: prod.quantidade, imagem: prod.imagem, codigoCategoria: prod.codigoCategoria}) }} className="text-blue-500 cursor-pointer hover:scale-[106%] mr-2"><FontAwesomeIcon icon={faEdit} /></button>

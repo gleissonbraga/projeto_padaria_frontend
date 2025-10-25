@@ -1,11 +1,12 @@
+
 import { faBarsProgress, faEdit, faFile, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCallback, useEffect, useState } from "react";
 import apiClient from "../../../../api/api";
 import Modal from "../../../modal/Modal";
 
-export default function ProdutosAdmin() {
-    const [produtos, setProdutos] = useState([{ idProduto: 0, nome: "", preco: 0, quantidade: 0, imagem: "", nomeCategoria: "", codigoCategoria: 0 }])
+export default function UsuariosAdmin() {
+    const [produtos, setProdutos] = useState([{ idProduto: 0, nome: "", preco: 0, quantidade: 0, imagem: "", nomeCategoria: "", codigoCategoria: 0, status: "" }])
     const [categorias, setCategorias] = useState([{ codigoCategoria: 0, nomeCategoria: "" }])
     const [abrirModalCadastro, setAbrirModalCadastro] = useState(false)
     const [abrirModalEditar, setAbrirModalEditar] = useState(false)
@@ -13,7 +14,7 @@ export default function ProdutosAdmin() {
     const [error, setError] = useState({ message: "" })
     const [errorCat, setErrorCat] = useState({ message: "" })
     const [form, setForm] = useState({ nome: "", preco: 0, quantidade: 0, imagem: "", categoria: 0 })
-    const [formUpdate, setFormUpdate] = useState({ idProduto: 0, nome: "", preco: 0, quantidade: 0, imagem: "", codigoCategoria: 0 })
+    const [formUpdate, setFormUpdate] = useState({ idProduto: 0, nome: "", preco: 0, quantidade: 0, imagem: "", codigoCategoria: 0, status: "" })
     const [id, setId] = useState(0)
     const [toastVisible, setToastVisible] = useState(false)
     const [toastVisibleDeleted, setToastVisibleDeleted] = useState(false)
@@ -83,6 +84,24 @@ export default function ProdutosAdmin() {
         setForm({ ...form, imagem: fileName });
     }
 
+     const handleChangeImageUpdate = (e) => {
+        const { value, files } = e.target
+
+        const fileName = value.split("\\").pop();
+        const fileType = files[0].type;
+        const fileExtension = fileName.split(".").pop().toLowerCase();
+        const validMimeTypes = ["image/jpeg", "image/png"];
+        const validExtensions = ["jpeg", "jpg", "png"];
+
+        if (!validMimeTypes.includes(fileType) || !validExtensions.includes(fileExtension)) {
+            alert("Envie apenas imagens JPEG ou PNG.");
+            e.target.value = "";
+            return;
+        }
+
+        setFormUpdate({ ...formUpdate, imagem: fileName });
+    }
+
     const handleChangeUpdate = (e) => {
         setFormUpdate({ ...formUpdate, [e.target.name]: e.target.value });
     };
@@ -129,7 +148,11 @@ export default function ProdutosAdmin() {
         }
 
         try {
-            await apiClient.put(`/produtos/${formUpdate.idProduto}`, { Nome: form.nome, Preco: form.preco, Quantidade: form.quantidade, Imagem: 'imagem.png', Categoria: form.categoria });
+            if(!formUpdate.imagem){
+                setFormUpdate(...formUpdate, {imagem: "padrao.png"})
+            }
+
+            await apiClient.put(`/produtos/${formUpdate.idProduto}`, { nome: formUpdate.nome, preco: formUpdate.preco, quantidade: formUpdate.quantidade, imagem: formUpdate.imagem, codigoCategoria: formUpdate.codigoCategoria, status: formUpdate.status })
             handleMessageUpdate()
             modalFecharEditar()
             setFormUpdate({ nome: "", preco: 0, quantidade: 0, imagem: "", categoria: 0 })
@@ -174,11 +197,11 @@ export default function ProdutosAdmin() {
                 <div className="w-full bg-[#4A43CF] h-12 rounded-t-2xl p-2">
                     <h3 className="text-2xl font-semibold text-white pl-4 flex gap-4">
                         <span><FontAwesomeIcon icon={faBarsProgress} /></span>
-                        <span>Cadastro Produtos</span>
+                        <span>Cadastro Usuários</span>
                     </h3>
                 </div>
                 <div className="w-full p-6">
-                    <button onClick={modalAbrirCadastro} className="
+                    <button onCliitck={modalAbrirCadastro} className="
                     px-3 border-2 border-[#000000] bg-[#000000bd] text-white rounded cursor-pointer
                      hover:bg-[#000000] hover:scale-[104%] transform transition delay-100">
                         <FontAwesomeIcon icon={faPlus} /> Adcionar
@@ -194,9 +217,6 @@ export default function ProdutosAdmin() {
                                     </th>
                                     <th className="p-2">
                                         Código
-                                    </th>
-                                    <th className="p-2">
-                                        Data
                                     </th>
                                     <th className="p-2">
                                         Nome
@@ -222,14 +242,12 @@ export default function ProdutosAdmin() {
                                             <img src={`/images/produtos/${prod.imagem}`} alt="" className="w-20 h-15" />
                                         </td>
                                         <td className="pl-4">{prod.idProduto}</td>
-                                        <td className="pl-4">{prod.data}</td>
                                         <td className="pl-2">{prod.nome}</td>
                                         <td className="pl-2">{prod.preco.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</td>
                                         <td className="pl-2 text-center">{prod.quantidade}</td>
                                         <td className="pl-2">{prod.nomeCategoria}</td>
                                         <td className="p-2">
-                                            <button onClick={() => 
-                                                { modalAbrirEditar(); setFormUpdate({ idProduto: prod.idProduto, nome: prod.nome, preco: prod.preco, quantidade: prod.quantidade, imagem: prod.imagem, codigoCategoria: prod.codigoCategoria}) }} className="text-blue-500 cursor-pointer hover:scale-[106%] mr-2"><FontAwesomeIcon icon={faEdit} /></button>
+                                            <button onClick={() => { modalAbrirEditar(); setFormUpdate({ idProduto: prod.idProduto, nome: prod.nome, preco: prod.preco, quantidade: prod.quantidade, imagem: prod.imagem, codigoCategoria: prod.codigoCategoria, status: prod.status }) }} className="text-blue-500 cursor-pointer hover:scale-[106%] mr-2"><FontAwesomeIcon icon={faEdit} /></button>
 
                                             <button onClick={() => { modalAbrirExcluir(); setId(prod.idProduto) }} className="text-red-500 cursor-pointer hover:scale-[106%]"><FontAwesomeIcon icon={faTrash} /></button>
                                         </td>
@@ -373,7 +391,7 @@ export default function ProdutosAdmin() {
                                     id="file-upload"
                                     type="file"
                                     name="imagem"
-                                    onChange={handleChangeImage}
+                                    onChange={handleChangeImageUpdate}
                                     className="hidden"
                                 />
 
@@ -391,9 +409,38 @@ export default function ProdutosAdmin() {
 
                                 {/* texto mostrando o arquivo */}
                                 <span className="text-sm text-gray-500 truncate">
-                                    {form.imagem || 'Nenhum arquivo selecionado'}
+                                    {formUpdate.imagem || 'Nenhum arquivo selecionado'}
                                 </span>
                             </div>
+                        </div>
+                       
+                    </div>
+                     <div className="w-[70%] flex items-center gap-3">
+                            
+                            <button
+                                type="button"
+                                onClick={() =>
+                                    setFormUpdate({
+                                        ...formUpdate,
+                                        status: formUpdate.status === "ATIVO" ? "INATIVO" : "ATIVO",
+                                    })
+                                    }
+                                className={`cursor-pointer relative w-20 h-7 rounded-full transition-colors duration-300 ${formUpdate.status == "ATIVO" ? "bg-green-500" : "bg-red-400"
+                                    }`}
+                            >
+                                <span className={`text-[10px] flex items-center font-bold text-white ${formUpdate.status == "ATIVO" ? "justify-left  pl-2" : "justify-end  pr-2"}`}>{formUpdate.status == "ATIVO" ? "ATIVO" : "INATIVO"}</span>
+                                <span
+                                    className={`absolute top-1 left-1 w-5 h-5 rounded-full bg-white transition-transform duration-300 ${formUpdate.status == "ATIVO" ? "translate-x-12" : "translate-x-0"
+                                        }`}
+                                />
+                            </button>
+                    </div>
+                    <div className="flex w-[70%] mt-4 bg-gray-100 p-2 rounded gap-4 items-center">
+                        <div className=" flex">
+                            <img src={`/images/produtos/${formUpdate.imagem}`} alt="" className=" w-32  rounded" />
+                        </div>
+                        <div>
+                             <p>{formUpdate.imagem}</p>
                         </div>
                     </div>
                 </form>

@@ -9,8 +9,6 @@ export default function Sucesso(){
     const status = query.get("status");
     const preferenceId = query.get("preference_id");
 
-    //https://projeto-padaria-frontend.vercel.app/pagamento/sucesso?collection_id=131360417694&collection_status=approved&payment_id=131360417694&status=approved&external_reference=null&payment_type=credit_card&merchant_order_id=35040995839&preference_id=2694156643-48b8bafd-31d4-4ff5-9ade-329c822550e5&site_id=MLB&processing_mode=aggregator&merchant_account_id=null
-
   useEffect(() => {
     const fetchData = async () => {
         if (status === "approved" && preferenceId) {

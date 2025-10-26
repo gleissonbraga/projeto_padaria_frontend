@@ -100,7 +100,9 @@ export default function NavBarAdmin() {
                                     )}
                                     <li onClick={() => setSelect("Pedidos")}
                                     className={`cursor-pointer  hover:rounded p-2 
-                                    ${select === "Pedidos" ? "bg-[#4F46E5] hover:bg-[#4a43cf] text-white rounded" : "hover:bg-gray-200"}`}><FontAwesomeIcon icon={faBasketShopping} /> Pedidos</li>
+                                    ${select === "Pedidos" ? "bg-[#4F46E5] hover:bg-[#4a43cf] text-white rounded" : "hover:bg-gray-200"}`}>
+                                        <Link to="/admin/pedidos"><FontAwesomeIcon icon={faBasketShopping} />  Pedidos</Link>
+                                        </li>
                                     <li onClick={() => setSelect("Relatórios")}
                                     className={`cursor-pointer  hover:rounded p-2 
                                     ${select === "Relatórios" ? "bg-[#4F46E5] hover:bg-[#4a43cf] text-white rounded" : "hover:bg-gray-200"}`}> <FontAwesomeIcon icon={faPaste} />Relatórios</li>

@@ -4,6 +4,7 @@ import CategoriaAdmin from "./components/categoria/CategoriaAdmin";
 import ProdutosAdmin from "./components/produtos/ProdutosAdmin";
 import PromocoesAdmin from "./components/promocoes/PromocoesAdmin";
 import UsuariosAdmin from "./components/usuarios/UsuariosAdmin";
+import PedidosAdmin from "./components/pedidos/PedidosAdmin";
 
 export default function Admin() {
   return (
@@ -15,6 +16,7 @@ export default function Admin() {
           <Route path="cadastro/produtos" element={<ProdutosAdmin />} />
           <Route path="cadastro/promocoes" element={<PromocoesAdmin />} />
           <Route path="cadastro/usuarios" element={<UsuariosAdmin />} />
+          <Route path="pedidos" element={<PedidosAdmin />} />
         </Routes>
       </div>
     </div>

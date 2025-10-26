@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import apiClient from "../../../../api/api";
 import Modal from "../../../modal/Modal";
 
-export default function UsuariosAdmin() {
+export default function ProdutosAdmin() {
     const [produtos, setProdutos] = useState([{ idProduto: 0, nome: "", preco: 0, quantidade: 0, imagem: "", nomeCategoria: "", codigoCategoria: 0, status: "" }])
     const [categorias, setCategorias] = useState([{ codigoCategoria: 0, nomeCategoria: "" }])
     const [abrirModalCadastro, setAbrirModalCadastro] = useState(false)
@@ -140,7 +140,6 @@ export default function UsuariosAdmin() {
     };
 
     const handleUpdate = async () => {
-        console.log(formUpdate);
         if (!formUpdate.nome || !formUpdate.codigoCategoria) {
             setError({ message: "Insira um nome para o produto." })
             setErrorCat({ message: "Selecione uma categoria." })
@@ -167,7 +166,6 @@ export default function UsuariosAdmin() {
         try {
             const response = await apiClient.get("/produtos/ativos");
             const sortedData = response.data.sort((a, b) => a.idProduto - b.idProduto);
-            console.log(response.data, "CONSOLE DO DATA ")
             setProdutos(sortedData)
         } catch (error) {
             console.error(error)
@@ -197,11 +195,11 @@ export default function UsuariosAdmin() {
                 <div className="w-full bg-[#4A43CF] h-12 rounded-t-2xl p-2">
                     <h3 className="text-2xl font-semibold text-white pl-4 flex gap-4">
                         <span><FontAwesomeIcon icon={faBarsProgress} /></span>
-                        <span>Cadastro Usuários</span>
+                        <span>Cadastro Produtos</span>
                     </h3>
                 </div>
                 <div className="w-full p-6">
-                    <button onCliitck={modalAbrirCadastro} className="
+                    <button onClick={modalAbrirCadastro} className="
                     px-3 border-2 border-[#000000] bg-[#000000bd] text-white rounded cursor-pointer
                      hover:bg-[#000000] hover:scale-[104%] transform transition delay-100">
                         <FontAwesomeIcon icon={faPlus} /> Adcionar

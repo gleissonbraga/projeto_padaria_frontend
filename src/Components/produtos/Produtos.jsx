@@ -161,7 +161,7 @@ export default function Produtos() {
                 key={prod.idProduto}
                 className="w-[26%] flex gap-4 border-2 items-center border-[#3a3737fb] p-2 rounded-3xl hover:scale-[102%] hover:transition-transform duration-700 bg-[#e48f0525]"
               >
-                <img src={`/images/produtos/${prod.imagem}`} alt={prod.nome} className="bg-gray-200 w-[58%] h-40 rounded-2xl"/>
+                <img src={`${prod.imagem}`} alt={prod.nome} className="bg-gray-200 w-[58%] h-40 rounded-2xl"/>
                 <div className="flex flex-col w-full gap-4">
                     <div>
                     <p className="font-semibold text-[#E38E00] text-[1.2rem]">{prod.nome}</p>

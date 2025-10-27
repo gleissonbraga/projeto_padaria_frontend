@@ -21,7 +21,7 @@ export const uploadImage = async (file: File) => {
   const formData = new FormData();
   formData.append("file", file);
 
-  return await axios.post("https://padaria-api-sui1.onrender.com/api/", formData, {
+  return await axios.post("https://padaria-api-sui1.onrender.com/api/produtos/upload", formData, {
     headers: { "Content-Type": "multipart/form-data" },
   });
 };

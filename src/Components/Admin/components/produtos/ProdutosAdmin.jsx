@@ -2,7 +2,7 @@
 import { faBarsProgress, faEdit, faFile, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCallback, useEffect, useState } from "react";
-import apiClient from "../../../../api/api";
+import apiClient, { uploadImage } from "../../../../api/api";
 import Modal from "../../../modal/Modal";
 
 export default function ProdutosAdmin() {
@@ -68,7 +68,7 @@ export default function ProdutosAdmin() {
 
     const handleChangeImage = (e) => {
         const { value, files } = e.target
-
+        const file = e.target.files[0];
         const fileName = value.split("\\").pop();
         const fileType = files[0].type;
         const fileExtension = fileName.split(".").pop().toLowerCase();
@@ -81,12 +81,13 @@ export default function ProdutosAdmin() {
             return;
         }
 
-        setForm({ ...form, imagem: fileName });
+        setForm({ ...form, imagem: file });
     }
 
      const handleChangeImageUpdate = (e) => {
         const { value, files } = e.target
 
+        const file = e.target.files[0];
         const fileName = value.split("\\").pop();
         const fileType = files[0].type;
         const fileExtension = fileName.split(".").pop().toLowerCase();
@@ -99,7 +100,7 @@ export default function ProdutosAdmin() {
             return;
         }
 
-        setFormUpdate({ ...formUpdate, imagem: fileName });
+        setFormUpdate({ ...formUpdate, imagem: file });
     }
 
     const handleChangeUpdate = (e) => {
@@ -114,7 +115,14 @@ export default function ProdutosAdmin() {
         }
 
         try {
-            await apiClient.post("/produtos", { Nome: form.nome, Preco: form.preco, Quantidade: form.quantidade, Imagem: 'imagem.png', Categoria: form.categoria });
+            let imageUrl = "padrao.png";
+
+            if (form.imagem instanceof File) {
+                const uploadRes = await uploadImage(form.imagem);
+                imageUrl = uploadRes.data.imageUrl; // recebe do backend
+            }
+
+            await apiClient.post("/produtos", { Nome: form.nome, Preco: form.preco, Quantidade: form.quantidade, Imagem: imageUrl, Categoria: form.categoria });
             handleMessage()
             modalFecharCadastro()
             setForm({ nome: "", preco: 0, quantidade: 0, imagem: "", categoria: 0 })
@@ -147,11 +155,18 @@ export default function ProdutosAdmin() {
         }
 
         try {
-            if(!formUpdate.imagem){
-                setFormUpdate(...formUpdate, {imagem: "padrao.png"})
+
+            console.log("no cadastro",form.imagem)
+            let imageUrl = "padrao.png";
+
+            if (formUpdate.imagem instanceof File) {
+                const uploadRes = await uploadImage(formUpdate.imagem);
+                imageUrl = uploadRes.data.imageUrl
             }
 
-            await apiClient.put(`/produtos/${formUpdate.idProduto}`, { nome: formUpdate.nome, preco: formUpdate.preco, quantidade: formUpdate.quantidade, imagem: formUpdate.imagem, codigoCategoria: formUpdate.codigoCategoria, status: formUpdate.status })
+            console.log("no update",imageUrl)
+
+            await apiClient.put(`/produtos/${formUpdate.idProduto}`, { nome: formUpdate.nome, preco: formUpdate.preco, quantidade: formUpdate.quantidade, imagem: imageUrl, codigoCategoria: formUpdate.codigoCategoria, status: formUpdate.status })
             handleMessageUpdate()
             modalFecharEditar()
             setFormUpdate({ nome: "", preco: 0, quantidade: 0, imagem: "", categoria: 0 })
@@ -187,8 +202,6 @@ export default function ProdutosAdmin() {
         fetchCategorias()
     }, [fetchProdutos, fetchCategorias])
 
-
-    console.log(produtos)
     return (
         <section className="w-full flex justify-center pt-12">
             <div className="w-[90%] rounded-2xl mb-6 shadow-2xl flex flex-col border-[1px] border-[#4A43CF]">
@@ -237,7 +250,7 @@ export default function ProdutosAdmin() {
                                 {produtos.map((prod) => (
                                     <tr className="hover:bg-gray-200 h-8 border-b-[1px] border-gray-200" key={prod.idProduto}>
                                         <td className="pl-4">
-                                            <img src={`/images/produtos/${prod.imagem}`} alt="" className="w-20 h-15" />
+                                            <img src={`${prod.imagem}`} alt="" className="w-20 h-15" />
                                         </td>
                                         <td className="pl-4">{prod.idProduto}</td>
                                         <td className="pl-2">{prod.nome}</td>
@@ -328,7 +341,7 @@ export default function ProdutosAdmin() {
 
                                 {/* texto mostrando o arquivo */}
                                 <span className="text-sm text-gray-500 truncate">
-                                    {form.imagem || 'Nenhum arquivo selecionado'}
+                                    {form.imagem instanceof File ? form.imagem.name : form.imagem || 'Nenhum arquivo selecionado'   }
                                 </span>
                             </div>
                         </div>
@@ -407,7 +420,7 @@ export default function ProdutosAdmin() {
 
                                 {/* texto mostrando o arquivo */}
                                 <span className="text-sm text-gray-500 truncate">
-                                    {formUpdate.imagem || 'Nenhum arquivo selecionado'}
+                                    {formUpdate.imagem instanceof File ? formUpdate.imagem.name : form.imagem || 'Nenhum arquivo selecionado'}
                                 </span>
                             </div>
                         </div>
@@ -435,10 +448,10 @@ export default function ProdutosAdmin() {
                     </div>
                     <div className="flex w-[70%] mt-4 bg-gray-100 p-2 rounded gap-4 items-center">
                         <div className=" flex">
-                            <img src={`/images/produtos/${formUpdate.imagem}`} alt="" className=" w-32  rounded" />
+                            <img src={`${formUpdate.imagem}`} alt="" className=" w-32  rounded" />
                         </div>
                         <div>
-                             <p>{formUpdate.imagem}</p>
+                             <p></p>
                         </div>
                     </div>
                 </form>

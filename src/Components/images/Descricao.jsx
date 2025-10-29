@@ -11,11 +11,11 @@ export default function Descricao(){
                     <div className="min-[350px]:w-[100%] sm:w-[50%] hover:scale-[98%] transition transform">
                          <img className="w-full h-full transition transform rounded-4xl brightness-50" src="/images/pao.jpg" alt="" />
                     </div>
-                    <div className="w-[30%] flex flex-col gap-2 justify-between">
-                        <div className="w-[350px] h-[250px] rounded-4xl">
+                    <div className="min-[350px]:w-[100%] sm:w-[30%] flex flex-col gap-2 justify-between">
+                        <div className="min-[88%]:w-[100%] sm:w-[350px] h-[250px] rounded-4xl">
                             <img className="w-full h-full hover:scale-[98%] transition transform rounded-4xl brightness-50" src="/images/cafe.jpg" alt="" />
                         </div>
-                        <div className="w-[350px] h-[250px] rounded-4xl">
+                        <div className="min-[88%]:w-[100%] sm:w-[350px] h-[250px] rounded-4xl">
                             <img className="w-full h-full hover:scale-[98%] transition transform rounded-4xl brightness-50" src="/images/torta.avif" alt="" />
                         </div>
                     </div>

@@ -121,7 +121,7 @@ export default function Produtos() {
                 Doces
               </li>
               <li
-                onClick={() => setCategoriaSelecionada("Pães")}
+                onClick={() => setCategoriaSelecionada("Paes")}
                 className="hover:text-[#c78b59] cursor-pointer hover:border-b-4 hover:border-amber-500 rounded"
               >
                 Pães
@@ -146,7 +146,7 @@ export default function Produtos() {
             ? produtosDoces
             : categoriaSelecionada === "Salgados"
             ? produtosSalgados
-            : categoriaSelecionada === "Pães"
+            : categoriaSelecionada === "Paes"
             ? produtosPaes
             : categoriaSelecionada === "Sucos"
             ? produtosSucos

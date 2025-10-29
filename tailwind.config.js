@@ -11,6 +11,10 @@ export default {
         poppins: ["Poppins", sans-serif]
       },
     },
+    screens: {
+      xs: '350px',
+      xss: '500px'
+    }
   },
   plugins: [],
 }

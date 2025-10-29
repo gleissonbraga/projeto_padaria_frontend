@@ -27,7 +27,8 @@ export default function Modal({Titulo, Tamanho, Carrinho = false, aberto, Fechar
 // 
     return (
         <div  className={`fixed inset-0 z-40 bg-[#0000008a] flex justify-center items-center ${CorTexto == undefined ? "text-[#48271d]" : `bg-[${CorTexto}]`}`}>
-            <div className={`${CorModal == undefined ? "bg-[#FFDDBD]" : CorModal} w-[${Tamanho}%] absolute z-[80] top-30 rounded-2xl flex flex-col items-center shadow-2xl justify-around`}
+            <div className={`${CorModal == undefined ? "bg-[#FFDDBD]" : CorModal} w-[98%] sm:w-[${Tamanho}%] absolute z-[80] 
+            top-4 sm:top-30 rounded-2xl flex flex-col items-center shadow-2xl justify-around`}
             style={{ color: CorModal ?? "#48271d" }}
             >
             <div className="p-4 w-[70%]">

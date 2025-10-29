@@ -16,6 +16,7 @@ import Login from "./Components/login/Login.jsx";
 import Admin from "./Components/Admin/Admin.jsx";
 import AdminPrivateRoute from "./Components/privateRoute/AdminPrivateRoute.jsx";
 import LinkPageAdmin from "./Components/Admin/LinkPageAdmin.jsx";
+import NavBarMobile from "./Components/navbar/NavBarMobile.jsx";
 
 function App() {
   const location = useLocation();
@@ -27,6 +28,7 @@ function App() {
   return (
     <CarrinhoProvider>
       {!hideLayout && <NavBar />}
+      {!hideLayout && <NavBarMobile />}
       {!hideLayout && <LinkPageAdmin />}
 
       <Routes>

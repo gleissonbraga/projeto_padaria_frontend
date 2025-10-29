@@ -30,21 +30,21 @@ export default function Sucesso(){
             <div className="bg-white w-[60%] flex flex-col items-center rounded-2xl">
                 <div className="w-full bg-[#48271D] flex flex-col items-center p-12 rounded-t-2xl gap-2">
                     <img src="/images/confirm.svg" alt="" className="w-12 h-12"/>
-                    <h1 className="font-extrabold text-white text-4xl">Pedido **Confirmado!**</h1>
+                    <h1 className="font-extrabold text-white text-2xl sm:text-4xl">Pedido **Confirmado!**</h1>
                     <p className="text-[1.1rem] text-[#C8A78E]">Sua compra foi realizada com sucesso.</p>
                 </div>
                 <div className="w-full p-8 flex flex-col gap-4">
                     <h2 className="text-2xl font-semibold">Detalhes Principais</h2>
-                    <div className="flex gap-2 w-full">
-                        <div className="flex flex-col gap-1 w-[33%] bg-[#F9FAFB] rounded-2xl p-1.5">
+                    <div className="sm:flex flex-col sm:flex-row gap-2 w-full">
+                        <div className="flex flex-col gap-1 sm:w-[33%] mb-4 sm:mb-0 bg-[#F9FAFB] rounded-2xl p-1.5">
                             <p className="uppercase text-[#6B85B3]">Número do Pedido</p>
                             <span className="text-[#C78B59] font-bold text-[1.3rem]">#{pedido.codigoPedido}</span>
                         </div>
-                        <div className="flex flex-col gap-1 w-[33%] bg-[#F9FAFB] rounded-2xl p-1.5">
+                        <div className="flex flex-col gap-1 sm:w-[33%] mb-4 sm:mb-0 bg-[#F9FAFB] rounded-2xl p-1.5">
                             <p className="uppercase text-[#6B85B3]">Data da Compra</p>
                             <span className="text-[#374151]">{new Date(pedido.dataPedido).toLocaleString("pt-BR", { dateStyle: "short", timeStyle: "short" })}</span>
                         </div>
-                        <div className="flex flex-col gap-1 w-[33%] bg-[#F9FAFB] rounded-2xl p-1.5">
+                        <div className="flex flex-col gap-1 sm:w-[33%] mb-4 sm:mb-0 bg-[#F9FAFB] rounded-2xl p-1.5">
                             <p className="uppercase text-[#6B85B3]">Chave para retirada</p>
                             <span className="text-[#865439] font-bold">{pedido.chave}</span>
                         </div>

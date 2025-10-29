@@ -10,16 +10,14 @@ export default function ItensCarrinho(){
     const {inserirQuantidadeCarrinho, limparCarrinho, removerDoCarrinho, removerProdutoCompleto, valorTotal, produtoNoCarrinho, itens} = useCarrinhoContext()
 
     return (
-        <div className="flex gap-4 w-full">
-            <div className={`flex flex-col gap-2 w-[68%] shadow rounded items-center ${itens.length > 4 ? "overflow-y-scroll overscroll-contain max-h-[400px]" : ""}`}>
+        <div className="flex flex-col sm:flex-row gap-4 w-full">
+            <div className={`flex flex-col  gap-2 w-full sm:w-[68%] shadow rounded items-center ${itens.length > 4 ? "overflow-y-scroll overscroll-contain max-h-[400px]" : ""}`}>
                 {itens.length > 0 ? (
                     <>
-                    
-                
                 {itens.map((prod) => (
                 <div className="w-[98%] flex gap-2 border-b-[1px] border-[#48271d63] p-2" key={prod.idProduto}>
                     <div className="w-[20%]">
-                        <img src={`/images/produtos/${prod.imagem}`} alt={prod.nome} className="rounded" />
+                        <img src={`${prod.imagem}`} alt={prod.nome} className="rounded" />
                     </div>
                     <div className="w-[50%] flex flex-col gap-2">
                         <h4 className="font-bold">{prod.nome}</h4>
@@ -56,8 +54,8 @@ export default function ItensCarrinho(){
                     </div>
                 )}
             </div>
-            <div className="w-[28%] h-50 shadow p-2 flex flex-col justify-between rounded" >
-                <h4 className="font-bold text-[1.2rem]">Resumo da Compra</h4>
+            <div className="w-full sm:w-[28%] h-10 sm:h-50 shadow p-2 flex sm:flex-col justify-between rounded" >
+                <h4 className="font-bold text-[1.2rem] hidden sm:flex">Resumo da Compra</h4>
                  {/* <div className="flex items-center gap-2">
                     <input
                         type="text"
@@ -80,7 +78,7 @@ export default function ItensCarrinho(){
                     </p>
                 </div>
                 <div className="text-center">
-                    <button onClick={() => limparCarrinho()} className="hover:underline p-1 rounded text-red-600 w-[90%] cursor-pointer">
+                    <button onClick={() => limparCarrinho()} className="hover:underline p-1 rounded text-red-600 w-full sm:w-[90%] cursor-pointer">
                         Limpar Carrinho
                     </button>
                 </div>

@@ -50,7 +50,7 @@ export default function NavBarAdmin() {
     }
 
     return (
-        <nav className="w-full h-20 fixed bg-white shadow-2xl flex justify-between items-center p-4">
+        <nav className=" w-full h-20 fixed bg-white shadow-2xl flex justify-between items-center p-4">
             {
                 abrirMenu && (
                     <div className="fixed left-0 h-screen w-[14%] shadow-2xl bg-white top-0 flex flex-col"><div className="flex justify-end">

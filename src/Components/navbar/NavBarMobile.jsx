@@ -5,7 +5,7 @@ import { useCarrinhoContext } from "../../context/CarrinhoContext";
 import Modal from "../modal/Modal";
 import ItensCarrinho from "../produtos/components/ItensCarrinho";
 
-export default function NavBar() {
+export default function NavBarMobile() {
   const [select, setSelect] = useState("");
   const { qtdProdutosDiferentes } = useCarrinhoContext();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,25 +29,15 @@ export default function NavBar() {
 
   return (
     <nav
-      className={`max-md:hidden flex bg-[#ffddbd] font-poppins  shadow-2xl flex-row justify-around items-center fixed  rounded-tr-full rounded-br-4xl z-50 mt-6 transition-all duration-1000
-     ${isScrolled ? "w-[16%] h-36" : "w-[82%] h-50"}`}
+      className={` min-[430px]:flex  sm:hidden  bg-[#ffddbd] font-poppins  shadow-2xl flex-row justify-around items-center fixed z-50 transition-all duration-1000 w-full rounded-full`}
     >
-      {!isScrolled ? (
-        <div className="flex items-start">
-          <img src="/images/image.png" alt="Logo" className="h-40 w-60" />
-        </div>
-      ) : (
-        <div className="hidden">
-          <img src="/images/image.png" alt="Logo" className="h-40 w-60" />
-        </div>
-      )}
 
       {!isScrolled ? (
         <div
           className={`transition-all duration-1000 flex flex-col-reverse gap-6`}
         >
           <div className="border-t-2 p-2 border-[#48271d] ">
-            <ul className="flex gap-6 h-10 text-2xl text-[#48271d] font-bold">
+            <ul className="flex h-10 text-sm text-[#48271d] font-bold gap-2">
               <li
                 onClick={() => setSelect("Inicio")}
                 className={`hover:scale-[101%] hover:border-b-4 hover:border-[#5d5d5d] hover:text-amber-500 rounded
@@ -101,7 +91,7 @@ export default function NavBar() {
               </li>
             </ul>
           </div>
-          <div className="flex justify-end gap-4 items-center p-4 w-50%">
+          <div className="flex gap-4 items-center p-4">
             <div className="">
               <div className="flex flex-col text-[#48271d] text-sm font-bold gap-1">
                 <span className="font-semibold font-poppins text-[1rem] flex gap-1 items-center">
@@ -134,9 +124,9 @@ export default function NavBar() {
           </div>
         </div>
       ) : (
-        <div className={` flex gap-4 rounded-tr-full`}>
+        <div className={`flex flex-col-reverse gap-2 rounded-tr-full p-2`}>
           <div className="">
-            <ul className="flex flex-col gap-1 text-[18px] text-[#48271d] font-bold">
+            <ul className="flex gap-4 text-[14px] text-[#48271d] font-bold">
               <li
                 onClick={() => setSelect("Inicio")}
                 className={` hover:text-amber-500 rounded
@@ -174,14 +164,14 @@ export default function NavBar() {
               </li>
             </ul>
           </div>
-          <div className="flex justify-end gap-4 items-center p-4 w-50%">
+          <div className="flex justify-center gap-4 items-center p-2 w-50%">
             <div className="flex">
               <button
                 onClick={modalAbrir}
                 className="cursor-pointer hover:scale-[104%]"
               >
                 <div
-                  className={`w-6 h-6 bg-red-600 rounded-4xl  relative top-3 left-5 text-center text-white font-semibold ${
+                  className={`w-5 h-5 bg-red-600 rounded-4xl  relative top-3 left-4 text-[14px] text-center text-white font-semibold ${
                     qtdProdutosDiferentes == 0 ? "hidden" : ""
                   }`}
                 >
@@ -191,7 +181,7 @@ export default function NavBar() {
                 <img
                   src="/images/cart-bakery.svg"
                   alt="cart"
-                  className="h-8 w-8 text-[#48271d]"
+                  className="h-6 w-6 text-[#48271d]"
                 />
               </button>
             </div>

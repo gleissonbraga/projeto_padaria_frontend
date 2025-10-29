@@ -7,8 +7,8 @@ export default function Descricao(){
                         O melhor da nossa cozinha!
                     </h3>
                 </div>
-                <figure className=" flex-wrap flex gap-4 p-4 justify-center">
-                    <div className="w-[50%] hover:scale-[98%] transition transform">
+                <figure className="min-[430px]:flex-col flex-wrap flex gap-4 p-4 justify-center">
+                    <div className="min-[430px]:w-[100%] w-[50%] hover:scale-[98%] transition transform">
                          <img className="w-full h-full transition transform rounded-4xl brightness-50" src="/images/pao.jpg" alt="" />
                     </div>
                     <div className="w-[30%] flex flex-col gap-2 justify-between">

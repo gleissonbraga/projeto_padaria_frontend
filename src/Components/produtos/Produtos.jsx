@@ -86,7 +86,7 @@ export default function Produtos() {
         </div>
         <div className="w-[80%] h-24 mt-8 flex flex-col border-t-[2px] border-[#5F3600] justify-center">
           <div className="w-[48%] h-10 flex">
-            <ul className="flex gap-6 text-[0.8rem] sm:text-[1.2rem] text-[#5D5D5D] font-poppins font-semibold ">
+            <ul className="flex gap-6 text-[0.6rem] sm:text-[1.2rem] text-[#5D5D5D] font-poppins font-semibold ">
               <li
                 onClick={() => setCategoriaSelecionada("Todos")}
                 className={`hover:text-[#c78b59] cursor-pointer hover:border-b-4 hover:border-amber-500 rounded

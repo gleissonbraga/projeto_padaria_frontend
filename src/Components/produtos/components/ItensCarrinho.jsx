@@ -68,7 +68,7 @@ export default function ItensCarrinho(){
                         Aplicar
                     </button>
                 </div> */}
-                <div className="flex justify-between font-bold">
+                <div className="flex gap-2 sm:gap-0 justify-between font-bold">
                     <p className="font-semibold text-[1.2rem]">Total</p>
                     <p className="flex items-start font-semibold text-gray-900">
                         <span className="text-sm mt-[4px] mr-1">R$</span>

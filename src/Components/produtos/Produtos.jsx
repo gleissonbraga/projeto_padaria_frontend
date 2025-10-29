@@ -86,7 +86,7 @@ export default function Produtos() {
         </div>
         <div className="w-[80%] h-24 mt-8 flex flex-col border-t-[2px] border-[#5F3600] justify-center">
           <div className="w-[48%] h-10 flex">
-            <ul className="flex gap-6 min-[430px]:text-[0.8rem] text-[1.2rem] text-[#5D5D5D] font-poppins font-semibold ">
+            <ul className="flex gap-6 text-[0.8rem] sm:text-[1.2rem] text-[#5D5D5D] font-poppins font-semibold ">
               <li
                 onClick={() => setCategoriaSelecionada("Todos")}
                 className={`hover:text-[#c78b59] cursor-pointer hover:border-b-4 hover:border-amber-500 rounded
@@ -159,7 +159,7 @@ export default function Produtos() {
             .map((prod) => (
               <div
                 key={prod.idProduto}
-                className="w-full sm:w-[30%] lg:w-[22%] flex gap-4 border-2 items-center border-[#3a3737fb] p-2 rounded-3xl hover:scale-[102%] hover:transition-transform duration-700 bg-[#e48f0525]"
+                className="w-full sm:w-[30%] lg:w-[30%] flex gap-4 border-2 items-center border-[#3a3737fb] p-2 rounded-3xl hover:scale-[102%] hover:transition-transform duration-700 bg-[#e48f0525]"
               >
                 <img src={`${prod.imagem}`} alt={prod.nome} className="bg-gray-200 w-[58%] h-40 rounded-2xl"/>
                 <div className="flex flex-col w-full gap-4">

@@ -29,7 +29,7 @@ export default function NavBarMobile() {
 
   return (
     <nav
-      className={` min-[430px]:flex  sm:hidden  bg-[#ffddbd] font-poppins  shadow-2xl flex-row justify-around items-center fixed z-50 transition-all duration-1000 w-full rounded-full`}
+      className={` min-[320px]:flex  sm:hidden  bg-[#ffddbd] font-poppins  shadow-2xl flex-row justify-around items-center fixed z-50 transition-all duration-1000 w-full rounded-full`}
     >
 
       {!isScrolled ? (

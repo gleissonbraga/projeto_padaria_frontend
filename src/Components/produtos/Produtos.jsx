@@ -29,7 +29,7 @@ export default function Produtos() {
             (p) => p.nomeCategoria === "Salgados"
           );
           const paes = response.data.filter(
-            (p) => p.nomeCategoria === "Paes"
+            (p) => p.nomeCategoria === "Pães"
           );
           const sucos = response.data.filter(
             (p) => p.nomeCategoria === "Sucos"
@@ -146,7 +146,7 @@ export default function Produtos() {
             ? produtosDoces
             : categoriaSelecionada === "Salgados"
             ? produtosSalgados
-            : categoriaSelecionada === "Paes"
+            : categoriaSelecionada === "Pães"
             ? produtosPaes
             : categoriaSelecionada === "Sucos"
             ? produtosSucos

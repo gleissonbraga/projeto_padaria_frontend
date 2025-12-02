@@ -79,7 +79,8 @@ export default function PedidosAdmin() {
     return (
         <section className="w-full flex justify-center pt-12">
             <div className="w-[90%] rounded-2xl mb-6 shadow-2xl flex flex-col border-[1px] border-[#4A43CF] p-4">
-                <table className="rounded-2xl bg-blue-200-100">
+                <div className="overflow-x-auto w-full">
+                <table className="rounded-2xl w-full bg-blue-200-100">
                     <thead className="text-left text-white bg-[#123f729c]">
                         <tr className="">
                             <th className="p-2">
@@ -117,14 +118,14 @@ export default function PedidosAdmin() {
                     <tbody className="w-full rounded-2xl">
                         {pedidosPaginados.map((ped) => (
                             <tr key={ped.codigoPedido} className="hover:bg-gray-200 h-8 border-b-[1px] border-gray-200">
-                                <th className="text-sm font-[400]">{new Date(ped.dataPedido).toLocaleDateString("pt-BR")}</th>
-                                <th className="font-[400]">#{ped.codigoPedido}</th>
-                                <th className="font-[400]">{ped.nomePessoa}</th>
-                                <th className="font-[400]">{ped.contato}</th>
-                                <th className="font-[400]">{new Date(ped.dataRetirada).toLocaleDateString("pt-BR")}</th>
-                                <th className="font-[400]">{ped.horaRetirada}</th>
-                                <th className="font-[400]">R$ {ped.valorTotal.toFixed(2).replace('.', ',')}</th>
-                                <th className="font-[400]">{ped.status}</th>
+                                <th className="text-sm font-[400] p-1">{new Date(ped.dataPedido).toLocaleDateString("pt-BR")}</th>
+                                <th className="font-[400] p-2">#{ped.codigoPedido}</th>
+                                <th className="font-[400] p-2">{ped.nomePessoa}</th>
+                                <th className="font-[400] p-2">{ped.contato}</th>
+                                <th className="font-[400] p-2">{new Date(ped.dataRetirada).toLocaleDateString("pt-BR")}</th>
+                                <th className="font-[400] p-2">{ped.horaRetirada}</th>
+                                <th className="font-[400] p-2">R$ {ped.valorTotal.toFixed(2).replace('.', ',')}</th>
+                                <th className="font-[400] p-2">{ped.status}</th>
                                 <th>
                                     <button className="hover:underline text-blue-500 text-sm font-medium cursor-pointer" onClick={() => { modalAbrirCadastro(); setprodutosModal(ped.produtos) }}>
                                         Ver Produtos
@@ -144,6 +145,7 @@ export default function PedidosAdmin() {
 
                     </tbody>
                 </table>
+                </div>
                 <div className="flex justify-center items-center mt-4 gap-2">
                     <button
                         disabled={paginaAtual === 1}

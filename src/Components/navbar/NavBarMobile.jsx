@@ -124,7 +124,7 @@ export default function NavBarMobile() {
           </div>
         </div>
       ) : (
-        <div className={`flex flex-col-reverse gap-2 rounded-tr-full p-2`}>
+        <div className={` flex flex-col-reverse gap-2 rounded-tr-full p-2`}>
           <div className="">
             <ul className="flex gap-4 text-[14px] text-[#48271d] font-bold">
               <li

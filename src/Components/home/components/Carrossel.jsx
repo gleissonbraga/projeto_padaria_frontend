@@ -18,16 +18,16 @@ export default function Carrossel() {
   }, []);
 
   return (
-    <div className="relative w-[90%] h-[400px] overflow-hidden rounded-2xl">
+    <div className="relative w-full h-[400px] overflow-hidden rounded-2xl">
       {/* Imagens */}
       {images.map((img, index) => (
         <img
-    key={index}
-    src={img}
-    alt={`Slide ${index}`}
-    className={`absolute w-full h-full object-contain transition-opacity duration-700 ${
-      index === currentIndex ? "opacity-100" : "opacity-0"
-    }`}
+            key={index}
+            src={img}
+            alt={`Slide ${index}`}
+            className={`absolute w-full h-full object-contain transition-opacity duration-700 ${
+              index === currentIndex ? "opacity-100" : "opacity-0"
+            }`}
 />
       ))}
 

@@ -50,10 +50,10 @@ export default function NavBarAdmin() {
     }
 
     return (
-        <nav className=" w-full h-20 fixed bg-white shadow-2xl flex justify-between items-center p-4">
+        <nav className=" w-[100%] lg:w-full h-20 fixed bg-white shadow-2xl flex justify-between items-center p-4">
             {
                 abrirMenu && (
-                    <div className="fixed left-0 h-screen w-[14%] shadow-2xl bg-white top-0 flex flex-col"><div className="flex justify-end">
+                    <div className="fixed left-0 h-screen w-[30%] lg:w-[14%] shadow-2xl bg-white top-0 flex flex-col"><div className="flex justify-end">
                         <button className="cursor-pointer hover:bg-gray-100 hover:rounded p-2" onClick={() => handleMenu()}>
                             <FontAwesomeIcon icon={faXmark} size="sm" />
                         </button>
@@ -86,11 +86,11 @@ export default function NavBarAdmin() {
                                             ${select === "Produtos" ? "bg-[#4F46E5] hover:bg-[#4a43cf] text-white rounded" : "hover:bg-gray-200"} `}>
                                                  <Link to="/admin/cadastro/produtos"><FontAwesomeIcon icon={faUtensils} />  Produtos</Link>
                                             </li>
-                                            <li onClick={() => setSelect("Promoções")}
+                                            {/* <li onClick={() => setSelect("Promoções")}
                                             className={`w-[80%]  cursor-pointer  hover:rounded p-2 
                                             ${select === "Promoções" ? "bg-[#4F46E5] hover:bg-[#4a43cf] text-white rounded" : "hover:bg-gray-200"} `}>
                                                 <Link to="/admin/cadastro/promocoes"><FontAwesomeIcon icon={faPercent} />  Promoções</Link>
-                                            </li>
+                                            </li> */}
                                             <li onClick={() => setSelect("Usuários")}
                                             className={`w-[80%]  cursor-pointer  hover:rounded p-2 
                                             ${select === "Usuários" ? "bg-[#4F46E5] hover:bg-[#4a43cf] text-white rounded" : "hover:bg-gray-200"} `}>
@@ -103,7 +103,7 @@ export default function NavBarAdmin() {
                                     ${select === "Pedidos" ? "bg-[#4F46E5] hover:bg-[#4a43cf] text-white rounded" : "hover:bg-gray-200"}`}>
                                         <Link to="/admin/pedidos"><FontAwesomeIcon icon={faBasketShopping} />  Pedidos</Link>
                                         </li>
-                                    <li onClick={() => setSelect("Relatórios")}
+                                    {/* <li onClick={() => setSelect("Relatórios")}
                                     className={`cursor-pointer  hover:rounded p-2 
                                     ${select === "Relatórios" ? "bg-[#4F46E5] hover:bg-[#4a43cf] text-white rounded" : "hover:bg-gray-200"}`}> <FontAwesomeIcon icon={faPaste} />Relatórios</li>
                                     <li onClick={() => setSelect("Site")}
@@ -112,7 +112,7 @@ export default function NavBarAdmin() {
                                     />Site</li>
                                     <li onClick={() => setSelect("Configurações")}
                                     className={`cursor-pointer hover:rounded p-2 
-                                    ${select === "Configurações" ? "bg-[#4F46E5] hover:bg-[#4a43cf] text-white rounded" : "hover:bg-gray-200"}`}><FontAwesomeIcon icon={faGear} />Configurações</li>
+                                    ${select === "Configurações" ? "bg-[#4F46E5] hover:bg-[#4a43cf] text-white rounded" : "hover:bg-gray-200"}`}><FontAwesomeIcon icon={faGear} />Configurações</li> */}
                                 </ul>
                             </div>
                             <div className="w-full p-2 mb-10">

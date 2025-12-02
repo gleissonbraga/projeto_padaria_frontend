@@ -11,6 +11,7 @@ export default function Produtos() {
   const [produtosPaes, setProdutosPaes] = useState([])
   const [produtosTortas, setProdutosTortas] = useState([])
   const [produtosSucos, setProdutosSucos] = useState([])
+  const [produtosCafes, setProdutosCafes] = useState([])
   const [toastVisible, setToastVisible] = useState(false)
   const [categoriaSelecionada, setCategoriaSelecionada] = useState("Todos")
   const [quantidades, setQuantidades] = useState({})
@@ -29,7 +30,7 @@ export default function Produtos() {
             (p) => p.nomeCategoria === "Salgados"
           );
           const paes = response.data.filter(
-            (p) => p.nomeCategoria === "Pães"
+            (p) => p.nomeCategoria === "Paes"
           );
           const sucos = response.data.filter(
             (p) => p.nomeCategoria === "Sucos"
@@ -37,11 +38,15 @@ export default function Produtos() {
           const tortas = response.data.filter(
             (p) => p.nomeCategoria === "Tortas"
           );
+           const cafes = response.data.filter(
+            (p) => p.nomeCategoria === "Cafes"
+          );
           setProdutosDoces(doces);
           setProdutosSalgados(salgados);
           setProdutosPaes(paes)
           setProdutosSucos(sucos)
           setProdutosTortas(tortas)
+          setProdutosCafes(cafes)
           setProdutos(response.data)
         }
       } catch (error) {
@@ -76,6 +81,8 @@ export default function Produtos() {
       setToastVisible(false)
     }, 6000)
   }
+
+  console.log(produtosPaes, "testando se esta vindo ")
 
   return (
     
@@ -112,31 +119,57 @@ export default function Produtos() {
               <li
                 onClick={() => setCategoriaSelecionada("Doces")}
                 className={`hover:text-[#c78b59] cursor-pointer hover:border-b-4 hover:border-amber-500 rounded
-      ${
-        categoriaSelecionada === "Doces"
-          ? "border-b-4 border-amber-500 text-[#c78b59]"
-          : ""
-      }`}
+                ${
+                  categoriaSelecionada === "Doces"
+                    ? "border-b-4 border-amber-500 text-[#c78b59]"
+                    : ""
+                }`}
               >
                 Doces
               </li>
               <li
                 onClick={() => setCategoriaSelecionada("Paes")}
-                className="hover:text-[#c78b59] cursor-pointer hover:border-b-4 hover:border-amber-500 rounded"
+                 className={`hover:text-[#c78b59] cursor-pointer hover:border-b-4 hover:border-amber-500 rounded
+                ${
+                  categoriaSelecionada === "Paes"
+                    ? "border-b-4 border-amber-500 text-[#c78b59]"
+                    : ""
+                }`}
               >
                 Pães
               </li>
               <li
                 onClick={() => setCategoriaSelecionada("Tortas")}
-                className="hover:text-[#c78b59] cursor-pointer hover:border-b-4 hover:border-amber-500 rounded"
+                className={`hover:text-[#c78b59] cursor-pointer hover:border-b-4 hover:border-amber-500 rounded
+                ${
+                  categoriaSelecionada === "Tortas"
+                    ? "border-b-4 border-amber-500 text-[#c78b59]"
+                    : ""
+                }`}
               >
                 Tortas
               </li>
               <li
                 onClick={() => setCategoriaSelecionada("Sucos")}
-                className="hover:text-[#c78b59] cursor-pointer hover:border-b-4 hover:border-amber-500 rounded"
+                className={`hover:text-[#c78b59] cursor-pointer hover:border-b-4 hover:border-amber-500 rounded
+                ${
+                  categoriaSelecionada === "Sucos"
+                    ? "border-b-4 border-amber-500 text-[#c78b59]"
+                    : ""
+                }`}
               >
                 Sucos
+              </li>
+              <li
+                onClick={() => setCategoriaSelecionada("Cafes")}
+                className={`hover:text-[#c78b59] cursor-pointer hover:border-b-4 hover:border-amber-500 rounded
+                ${
+                  categoriaSelecionada === "Cafes"
+                    ? "border-b-4 border-amber-500 text-[#c78b59]"
+                    : ""
+                }`}
+              >
+                Cafés
               </li>
             </ul>
           </div>
@@ -146,12 +179,14 @@ export default function Produtos() {
             ? produtosDoces
             : categoriaSelecionada === "Salgados"
             ? produtosSalgados
-            : categoriaSelecionada === "Pães"
+            : categoriaSelecionada === "Paes"
             ? produtosPaes
             : categoriaSelecionada === "Sucos"
             ? produtosSucos
             : categoriaSelecionada === "Tortas"
             ? produtosTortas
+            : categoriaSelecionada === "Cafes"
+            ? produtosCafes
             : categoriaSelecionada === "Todos"
             ? [...produtos].sort((a, b) => a.nome.localeCompare(b.nome))
             : []
@@ -159,7 +194,7 @@ export default function Produtos() {
             .map((prod) => (
               <div
                 key={prod.idProduto}
-                className="w-full sm:w-[30%] lg:w-[30%] flex gap-4 border-2 items-center border-[#3a3737fb] p-2 rounded-3xl hover:scale-[102%] hover:transition-transform duration-700 bg-[#e48f0525]"
+                className="w-full sm:w-[30%] md:w-[48%] lg:w-[20%] flex gap-4 border-2 items-center border-[#3a3737fb] p-2 rounded-3xl hover:scale-[102%] hover:transition-transform duration-700 bg-[#e48f0525]"
               >
                 <img src={`${prod.imagem}`} alt={prod.nome} className="bg-gray-200 w-[58%] h-40 rounded-2xl"/>
                 <div className="flex flex-col w-full gap-4">

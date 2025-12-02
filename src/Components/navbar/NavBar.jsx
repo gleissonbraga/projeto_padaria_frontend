@@ -30,11 +30,11 @@ export default function NavBar() {
   return (
     <nav
       className={`max-md:hidden flex bg-[#ffddbd] font-poppins  shadow-2xl flex-row justify-around items-center fixed  rounded-tr-full rounded-br-4xl z-50 mt-6 transition-all duration-1000
-     ${isScrolled ? "w-[16%] h-36" : "w-[82%] h-50"}`}
+     ${isScrolled ? "w-[30%] lg:w-[16%] h-36" : "w-[82%] h-50"}`}
     >
       {!isScrolled ? (
         <div className="flex items-start">
-          <img src="/images/image.png" alt="Logo" className="h-40 w-60" />
+          <img src="/images/image.png" alt="Logo" className="w-48 h-28 lg:h-40 lg:w-60" />
         </div>
       ) : (
         <div className="hidden">
@@ -47,7 +47,7 @@ export default function NavBar() {
           className={`transition-all duration-1000 flex flex-col-reverse gap-6`}
         >
           <div className="border-t-2 p-2 border-[#48271d] ">
-            <ul className="flex gap-6 h-10 text-2xl text-[#48271d] font-bold">
+            <ul className="flex gap-6 h-10 text-[1.2rem] lg:text-2xl text-[#48271d] font-bold">
               <li
                 onClick={() => setSelect("Inicio")}
                 className={`hover:scale-[101%] hover:border-b-4 hover:border-[#5d5d5d] hover:text-amber-500 rounded
@@ -101,7 +101,7 @@ export default function NavBar() {
               </li>
             </ul>
           </div>
-          <div className="flex justify-end gap-4 items-center p-4 w-50%">
+          <div className="flex justify-end gap-4 items-center p-4 w-[70%] lg:w-[90%]">
             <div className="">
               <div className="flex flex-col text-[#48271d] text-sm font-bold gap-1">
                 <span className="font-semibold font-poppins text-[1rem] flex gap-1 items-center">

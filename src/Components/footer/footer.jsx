@@ -54,10 +54,10 @@ function Footer() {
               <strong>Endereço:</strong> Estrada Afonso Lourenço Mariante, 1520 - Bairro Belém Velho, Porto Alegre - RS
             </p>
             <p>
-              <strong>Telefone Fixo:</strong> (51) 3333-4444
+              <strong>Telefone Fixo:</strong> (51) 3333-1500
             </p>
             <p>
-              <strong>WhatsApp:</strong> (51) 99850-8213
+              <strong>WhatsApp:</strong> (51) 99930-3193
             </p>
             <p>
               <strong>Email:</strong>{" "}

@@ -110,7 +110,7 @@ export default function NavBar() {
                 </span>
                 <span className="font-semibold font-poppins text-[1rem] flex gap-1 items-center">
                   <img src="/images/phone.svg" alt="" />
-                  <span>51 3333-3333</span>
+                  <span>51 3333-1500</span>
                 </span>
               </div>
             </div>

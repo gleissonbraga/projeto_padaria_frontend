@@ -51,14 +51,13 @@ function Footer() {
           </h3>
           <div className="text-sm space-y-2">
             <p>
-              <strong>Endereço:</strong> Rua das Flores, 123 - Bairro Menino
-              Deus, Porto Alegre - RS
+              <strong>Endereço:</strong> Estrada Afonso Lourenço Mariante, 1520 - Bairro Belém Velho, Porto Alegre - RS
             </p>
             <p>
               <strong>Telefone Fixo:</strong> (51) 3333-4444
             </p>
             <p>
-              <strong>WhatsApp:</strong> (51) 99999-8888
+              <strong>WhatsApp:</strong> (51) 99850-8213
             </p>
             <p>
               <strong>Email:</strong>{" "}
@@ -79,13 +78,13 @@ function Footer() {
           </h3>
           <ul className="text-sm space-y-2">
             <li>
-              <strong>Segunda a Sexta:</strong> 6:30 – 19:30
+              <strong>Segunda a Sexta:</strong> 7:00 – 19:00
             </li>
             <li>
-              <strong>Sábados:</strong> 7:00 – 18:00
+              <strong>Sábados:</strong> 7:00 – 19:00
             </li>
             <li>
-              <strong>Domingos e Feriados:</strong> 7:00 – 12:00
+              <strong>Domingos e Feriados:</strong> 8:00 – 14:00
             </li>
           </ul>
         </div>
